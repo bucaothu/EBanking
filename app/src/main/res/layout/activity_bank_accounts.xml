@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/btn_back_home"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/left"
+        android:src="@drawable/left" />
+
+    <!-- Add Button -->
+    <ImageButton
+        android:id="@+id/btn_add_account"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/plus" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tài khoản"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Total Balance -->
+    <LinearLayout
+        android:id="@+id/total_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title"
+        android:padding="16dp"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tổng tài sản"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_sum_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VND **********"
+            android:textColor="@color/black"
+            android:layout_marginEnd="5dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <!-- Tabs -->
+    <LinearLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/total_balance"
+        android:background="#FFFFFF"> <!-- Changed background to white for better visibility -->
+
+        <Button
+            android:id="@+id/btn_to_bank_accounts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thanh toán"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/tab_background_selector"
+            android:textColor="@drawable/tab_text_selector" />
+
+        <Button
+            android:id="@+id/btn_to_saving_accounts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="Tiết kiệm"
+            android:background="@drawable/tab_background_selector"
+            android:textColor="@drawable/tab_text_selector" />
+    </LinearLayout>
+<FrameLayout
+    android:id="@+id/fl_bank_accounts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_below="@id/tabs"
+    />
+
+
+
+</RelativeLayout>
