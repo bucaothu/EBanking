@@ -16,11 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.intent.IntentBankAccount;
-import com.bank.ebanking.intent.IntentMainScreen;
 import com.bank.ebanking.intent.IntentTransferMain;
 import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.Payment;
-import com.bank.ebanking.model.Transfer;
+import com.bank.ebanking.model.Transaction;
+import com.bank.ebanking.model.TransactionType;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.model.UserProfile;
 
@@ -42,21 +41,28 @@ public class FragmentMain extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         UserProfile userProfile1= new UserProfile("hello1", "238759", "user1@email", "82374");
         UserProfile userProfile2= new UserProfile("hello2", "238759", "user2@email", "82374");
+        UserProfile userProfile3= new UserProfile("viettel", "238759", "viettel@email", "82374");
+
         User user1 = new User("skjdfh", "ksjfdb", "298734", true, userProfile1);
         User user2 = new User("skjdfh", "ksjfdb", "298734", true, userProfile2);
+        User usermerchant1 = new User("skjdfh", "ksjfdb", "298734", true, userProfile3);
+
 
         BankAccount bankAccount1 = new BankAccount("1212121212", 12, user1);
         BankAccount bankAccount2 = new BankAccount("0101010101", 12, user2);
+        BankAccount mechant1 = new BankAccount("0101010101", 12, usermerchant1);
 
-        List<Payment> payments = new ArrayList<>();
-        payments.add(new Payment("merchant", true, 12, new Date(2024,12,12), "", bankAccount1));
-        payments.add(new Payment("merchant", true, 12, new Date(2024,12,12), "", bankAccount2));
+        TransactionType transactionType1 = new TransactionType(1, "Chuyển tiền");
+        TransactionType transactionType2 = new TransactionType(2, "Thanh toán");
 
-        List<Transfer> transfers = new ArrayList<>();
-        transfers.add(new Transfer(bankAccount1, bankAccount2, 12, new Date(2024,12,12), bankAccount1));
-        transfers.add(new Transfer(bankAccount2, bankAccount1, 11, new Date(2024,12,12), bankAccount1));
 
-        adapterBill = new AdapterBill(payments, transfers);
+        List<Transaction> transactions = new ArrayList<>();
+        transactions.add(new Transaction(bankAccount2, 12, new Date(2024,12,12), "",transactionType1, bankAccount1));
+        transactions.add(new Transaction(mechant1, 12, new Date(2024,12,12), "",transactionType2, bankAccount1));
+        transactions.add(new Transaction(bankAccount1, 11, new Date(2024,12,12),"",transactionType1, bankAccount2));
+
+
+        adapterBill = new AdapterBill(transactions);
         recyclerView.setAdapter(adapterBill);
 
         return view;

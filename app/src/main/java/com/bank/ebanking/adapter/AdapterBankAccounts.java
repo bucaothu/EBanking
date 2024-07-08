@@ -1,6 +1,5 @@
 package com.bank.ebanking.adapter;
 
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.Payment;
-import com.bank.ebanking.model.Transfer;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class AdapterBankAccounts extends RecyclerView.Adapter<AdapterBankAccounts.MyViewHolder> {

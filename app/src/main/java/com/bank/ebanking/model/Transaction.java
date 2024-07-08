@@ -3,36 +3,34 @@ package com.bank.ebanking.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Payment implements Serializable {
+public class Transaction implements Serializable {
     private int idPayments;
-    private String merchant;
-    private boolean isReceived;
+    private BankAccount toAccountNumber;
     private float amount;
     private Date date;
     private String description;
+    private TransactionType transactionType;
     private BankAccount accountNumber;
 
-
-
-    public Payment() {
+    public Transaction() {
     }
 
-    public Payment(int idPayments, String merchant, boolean isReceived, float amount, Date date, String description, BankAccount accountNumber) {
-        this.idPayments = idPayments;
-        this.merchant = merchant;
-        this.isReceived = isReceived;
+    public Transaction(BankAccount toAccountNumber, float amount, Date date, String description, TransactionType transactionType, BankAccount accountNumber) {
+        this.toAccountNumber = toAccountNumber;
         this.amount = amount;
         this.date = date;
         this.description = description;
+        this.transactionType = transactionType;
         this.accountNumber = accountNumber;
     }
 
-    public Payment(String merchant, boolean isReceived, float amount, Date date, String description, BankAccount accountNumber) {
-        this.merchant = merchant;
-        this.isReceived = isReceived;
+    public Transaction(int idPayments, BankAccount toAccountNumber, float amount, Date date, String description, TransactionType transactionType, BankAccount accountNumber) {
+        this.idPayments = idPayments;
+        this.toAccountNumber = toAccountNumber;
         this.amount = amount;
         this.date = date;
         this.description = description;
+        this.transactionType = transactionType;
         this.accountNumber = accountNumber;
     }
 
@@ -44,20 +42,12 @@ public class Payment implements Serializable {
         this.idPayments = idPayments;
     }
 
-    public String getMerchant() {
-        return merchant;
+    public BankAccount getToAccountNumber() {
+        return toAccountNumber;
     }
 
-    public void setMerchant(String merchant) {
-        this.merchant = merchant;
-    }
-
-    public boolean isReceived() {
-        return isReceived;
-    }
-
-    public void setReceived(boolean received) {
-        isReceived = received;
+    public void setToAccountNumber(BankAccount toAccountNumber) {
+        this.toAccountNumber = toAccountNumber;
     }
 
     public float getAmount() {
@@ -84,6 +74,14 @@ public class Payment implements Serializable {
         this.description = description;
     }
 
+    public TransactionType getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(TransactionType transactionType) {
+        this.transactionType = transactionType;
+    }
+
     public BankAccount getAccountNumber() {
         return accountNumber;
     }
@@ -91,6 +89,5 @@ public class Payment implements Serializable {
     public void setAccountNumber(BankAccount accountNumber) {
         this.accountNumber = accountNumber;
     }
-
     // Constructors, getters, setters
 }

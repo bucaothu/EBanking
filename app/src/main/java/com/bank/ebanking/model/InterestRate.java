@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class InterestRate implements Serializable {
+    private int idInterestRate;
+    private int termMonths;
+    private float minBalance;
+    private float interestRate;
+    private Date startDate;
+    private Date endDate;
+    private SavingAccountType idSavingAccountType;
     public InterestRate(int termMonths, float minBalance, float interestRate, Date startDate, Date endDate, SavingAccountType idSavingAccountType) {
         this.termMonths = termMonths;
         this.minBalance = minBalance;
@@ -12,15 +19,6 @@ public class InterestRate implements Serializable {
         this.endDate = endDate;
         this.idSavingAccountType = idSavingAccountType;
     }
-
-    private int idInterestRate;
-    private int termMonths;
-    private float minBalance;
-    private float interestRate;
-    private Date startDate;
-    private Date endDate;
-    private SavingAccountType idSavingAccountType;
-
     public InterestRate(int idInterestRate, int termMonths, float minBalance, float interestRate, Date startDate, Date endDate, SavingAccountType idSavingAccountType) {
         this.idInterestRate = idInterestRate;
         this.termMonths = termMonths;

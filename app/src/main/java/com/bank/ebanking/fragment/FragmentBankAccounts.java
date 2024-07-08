@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,14 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBankAccounts;
-import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.Payment;
-import com.bank.ebanking.model.Transfer;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.model.UserProfile;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
