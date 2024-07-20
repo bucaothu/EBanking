@@ -53,7 +53,7 @@
             android:hint="Họ tên"></EditText>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_user_id_sign_up"
+        android:id="@+id/layout_user_cccd_sign_up"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:layout_marginTop="20dp"
@@ -63,6 +63,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_user_name_sign_up"
+        >
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/icon_credit_card"></ImageView>
+
+        <EditText
+            android:id="@+id/edtCccd"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số căn cước công dân"></EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_user_id_sign_up"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_user_cccd_sign_up"
         >
         <ImageView
             android:layout_width="45dp"

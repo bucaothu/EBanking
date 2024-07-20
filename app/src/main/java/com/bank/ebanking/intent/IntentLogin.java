@@ -6,12 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashMap;
+import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
+import com.bank.ebanking.services.Services.AuthenticationService;
 
 public class IntentLogin extends AppCompatActivity {
-    EditText username, password;
+    EditText edtUsername, edtPassword;
     Button btnLogin, btnSignup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +28,10 @@ public class IntentLogin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainScreen= new Intent(IntentLogin.this, IntentMainScreen.class);
-                startActivity(mainScreen);
-                finish();
+                Map<String, String> loginInfo = new HashMap<>();
+                loginInfo.put("username", edtUsername.getText().toString());
+                loginInfo.put("password", edtPassword.getText().toString());
+                AuthenticationService.login(loginInfo, IntentLogin.this);
             }
         });
 
@@ -42,8 +46,8 @@ public class IntentLogin extends AppCompatActivity {
     }
 
     private void setControl() {
-        username=findViewById(R.id.edtUsername);
-        password=findViewById(R.id.edtPassword);
+        edtUsername=findViewById(R.id.edtUsername);
+        edtPassword=findViewById(R.id.edtPassword);
         btnLogin=findViewById(R.id.btnLogin);
         btnSignup=findViewById(R.id.btnSignUp);
     }

@@ -10,7 +10,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/left"
         android:src="@drawable/left" />
 
@@ -18,11 +18,11 @@
         android:id="@+id/transfer_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/back_button"
-        android:layout_alignTop="@id/back_button"
+        android:layout_toEndOf="@id/btn_back_transfer_main"
+        android:layout_alignTop="@id/btn_back_transfer_main"
         android:layout_marginStart="8dp"
-        android:text="Chuyển trong cùng ngân hàng Ebanking"
-        android:textSize="18sp"
+        android:text="Chuyển trong cùng ngân hàng"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <LinearLayout
