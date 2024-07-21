@@ -2,15 +2,12 @@ package com.bank.ebanking.intent;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bank.EBanking.R;
@@ -32,23 +29,20 @@ public class IntentBankAccount extends AppCompatActivity {
     }
 
     private void setEvent() {
+        buttonToFirst.setOnClickListener(v -> loadFragment(new FragmentBankAccounts()));
+        buttonToSecond.setOnClickListener(v -> loadFragment(new FragmentSavingAccounts()));
+        btnBack.setOnClickListener(view -> {
+            Intent mainScreen= new Intent(IntentBankAccount.this, IntentMainScreen.class);
+            startActivity(mainScreen);
+            finish();
+        });
+    }
+
+    private void setControl() {
         buttonToFirst = findViewById(R.id.btn_to_bank_accounts);
         buttonToSecond = findViewById(R.id.btn_to_saving_accounts);
         btnBack = findViewById(R.id.btn_back_home);
         btnAdd = findViewById(R.id.btn_add_account);
-    }
-
-    private void setControl() {
-        buttonToFirst.setOnClickListener(v -> loadFragment(new FragmentBankAccounts()));
-        buttonToSecond.setOnClickListener(v -> loadFragment(new FragmentSavingAccounts()));
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mainScreen= new Intent(IntentBankAccount.this, IntentMainScreen.class);
-                startActivity(mainScreen);
-                finish();
-            }
-        });
     }
 
     private void loadFragment(Fragment fragment) {

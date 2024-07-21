@@ -1,6 +1,6 @@
 package com.bank.ebanking.adapter;
 
-import android.os.Build;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.model.Transaction;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> {
@@ -23,12 +22,7 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
 
     public AdapterBill(List<Transaction> transactionList) {
         itemList.addAll(transactionList);
-        Collections.sort(itemList, new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction t1, Transaction t2) {
-                return t1.getDate().compareTo(t2.getDate());
-            }
-        });
+        Collections.sort(itemList, (t1, t2) -> t1.getDate().compareTo(t2.getDate()));
     }
 
     @NonNull
@@ -44,7 +38,7 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
         Transaction item = itemList.get(position);
         String person, date, amount;
         person = item.getToAccountNumber().getIdUser().getUserProfile().getName();
-        date = item.getDate().toString();
+        date = new SimpleDateFormat("dd-MM-yyyy").format(item.getDate());
         amount = String.valueOf(item.getAmount());
 
         holder.person.setText(person);

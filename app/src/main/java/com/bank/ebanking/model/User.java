@@ -1,7 +1,8 @@
 package com.bank.ebanking.model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
-import java.util.Date;
 
 // Class representing a User
 public class User implements Serializable {
@@ -9,11 +10,11 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String pin;
-    private boolean status;
+    private int status;
 
     private UserProfile userProfile;
 
-    public User(String username, String password, String pin, boolean status) {
+    public User(String username, String password, String pin, int status) {
         this.username = username;
         this.password = password;
         this.pin = pin;
@@ -28,7 +29,8 @@ public class User implements Serializable {
         this.userProfile = userProfile;
     }
 
-    public User(String username, String password, String pin, boolean status, UserProfile userProfile) {
+
+    public User(String username, String password, String pin, int status, UserProfile userProfile) {
         this.username = username;
         this.password = password;
         this.pin = pin;
@@ -71,14 +73,15 @@ public class User implements Serializable {
         this.pin = pin;
     }
 
-    public boolean isStatus() {
+    public int isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "User{" +

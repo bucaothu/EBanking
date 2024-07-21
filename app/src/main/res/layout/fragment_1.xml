@@ -192,7 +192,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="167dp"
-                tools:layout_editor_absoluteY="400dp"/>
+                tools:layout_editor_absoluteY="400dp"
+                android:background="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.bank.ebanking.api.interceptor;
 
-import com.bank.ebanking.api.interceptor.CustomInterceptor;
+
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 
@@ -11,26 +12,22 @@ import okhttp3.Response;
 
 public class CustomInterceptor implements Interceptor {
     @Override
-    public Response intercept(Chain chain) throws IOException {
-        // GET ORIGINAL REQUEST.
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Request originalRequest = chain.request();
-        // ADD HEADER TO REQUEST.
         String accessToken = "";
 
         try{
-            UserSessionManager userSessionManager = new UserSessionManager(MyApp.getContext());
-            accessToken = userSessionManager.getToken();
+            accessToken = UserSessionManager.getToken();
         }
         catch (Exception e){
+            System.out.println("can't find access token");
         }
-        if(accessToken.equals("")){
+        if (accessToken.isEmpty()) {
             Request modifiedRequest = originalRequest.newBuilder()
                     .addHeader("Accept", "application/json")
                     .build();
-            // CONTINUE TO EXECUTE REQUEST.
             return chain.proceed(modifiedRequest);
-        }
-        else{
+        } else {
             Request modifiedRequest = originalRequest.newBuilder()
                     .addHeader("Authorization", "Bearer " + accessToken)
                     .addHeader("Accept", "application/json")

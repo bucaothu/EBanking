@@ -24,24 +24,23 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AuthenticationService {
-    private static UserSessionManager userSessionManager;
     public static void login(Map<String, String> data, Context context) {
         AuthenticationAPIService.service.login(data).enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(@NonNull Call<JsonElement> call, @NonNull Response<JsonElement> response) {
                 try {
-                    // GET JSON RESPONSE.
                     JsonObject responseData = Objects.requireNonNull(response.body()).getAsJsonObject();
                     String accessToken = responseData.get("accessToken").getAsString();
-                    userSessionManager = new UserSessionManager(context);
+                    UserSessionManager.innit(context);
                     // Store username
-                    userSessionManager.saveUsername(responseData.get("username").getAsString());
-                    userSessionManager.saveToken(accessToken);
+                    UserSessionManager.saveUsername(responseData.get("username").getAsString());
+                    UserSessionManager.saveToken(accessToken);
                     TokenStorage.setAccessToken(accessToken);
-                    Intent intent = new Intent(context, IntentMainScreen.class);
-                    context.startActivity(intent);
+                    IntentMainScreen intentMainScreen = new IntentMainScreen();
+                    TransactionService.getTransactions(responseData.get("username").getAsString(), context, intentMainScreen);
                 } catch (Exception e) {
-                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+                    System.out.println(e);
                 }
             }
             @Override
@@ -54,7 +53,7 @@ public class AuthenticationService {
 
     public static void register(Map<String, String> data, Context context) {
         UserProfile userProfile = new UserProfile(data.get("name"), data.get("phone"), data.get("email"), data.get("cccd"));
-        User user = new User(data.get("username"), data.get("password"), data.get("pin"), true, userProfile);
+        User user = new User(data.get("username"), data.get("password"), data.get("pin"), 1, userProfile);
         AuthenticationAPIService.service.register(user).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
