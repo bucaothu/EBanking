@@ -21,7 +21,7 @@ public class UserSessionManager {
         sharedPreferences.edit().putString(KEY_ACCESSTOKEN, token).apply();
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return sharedPreferences.getString(KEY_USERNAME, null);
     }
 

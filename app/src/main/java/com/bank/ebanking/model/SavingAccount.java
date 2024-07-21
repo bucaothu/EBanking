@@ -9,11 +9,11 @@ public class SavingAccount implements Serializable {
     private Date startDate;
     private Date endDate;
     private float interestRate;
-    private boolean status;
+    private int status;
     private BankAccount bankAccountNumber;
     private SavingAccountType idSavingAccountType;
 
-    public SavingAccount(String accountNumber, float balance, Date startDate, Date endDate, float interestRate, boolean status, BankAccount bankAccountNumber, SavingAccountType idSavingAccountType) {
+    public SavingAccount(String accountNumber, float balance, Date startDate, Date endDate, float interestRate, int status, BankAccount bankAccountNumber, SavingAccountType idSavingAccountType) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.startDate = startDate;
@@ -75,11 +75,11 @@ public class SavingAccount implements Serializable {
         this.interestRate = interestRate;
     }
 
-    public boolean isStatus() {
+    public int isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

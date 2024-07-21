@@ -89,5 +89,4 @@ public class Transaction implements Serializable {
     public void setAccountNumber(BankAccount accountNumber) {
         this.accountNumber = accountNumber;
     }
-    // Constructors, getters, setters
 }

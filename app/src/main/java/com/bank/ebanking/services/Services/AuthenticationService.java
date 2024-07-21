@@ -3,9 +3,11 @@ package com.bank.ebanking.services.Services;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import com.bank.ebanking.api.AuthenticationAPIService;
 import com.bank.ebanking.api.interceptor.TokenStorage;
@@ -26,6 +28,7 @@ import retrofit2.Response;
 public class AuthenticationService {
     public static void login(Map<String, String> data, Context context) {
         AuthenticationAPIService.service.login(data).enqueue(new Callback<JsonElement>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(@NonNull Call<JsonElement> call, @NonNull Response<JsonElement> response) {
                 try {

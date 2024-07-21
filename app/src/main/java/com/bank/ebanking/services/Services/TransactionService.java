@@ -30,13 +30,12 @@ public class TransactionService {
                 try {
                     if(response.body()!= null){
                         response.body().forEach(transaction -> {
-                            System.out.println(transaction.getDate());
                             transactions.add(transaction);
                         });
                     }
                     Intent newIntent = new Intent(context, intent.getClass());
                     newIntent.putExtra("transactions", transactions);
-                    context.startActivity(newIntent);
+                    UserService.getUser(data, context, newIntent);
                 } catch (Exception e) {
                     Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
                 }

@@ -46,18 +46,24 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         SavingAccount savingAccount = savingAccounts.get(position);
         holder.tvAccountNumber.setText(savingAccount.getAccountNumber());
         holder.tvBalance.setText(String.valueOf(savingAccount.getBalance()));
         holder.tvStartDate.setText(sdf.format(savingAccount.getStartDate()));
-        holder.tvEndDate.setText(sdf.format(savingAccount.getEndDate()));
-        holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates))+"%");
-        if(savingAccount.isStatus()) {
-            holder.tvStatus.setText("Còn hạn");
+        if(savingAccount.getEndDate()!= null){
+            holder.tvEndDate.setText(sdf.format(savingAccount.getEndDate()));
+            holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, false))+"%");
+        }
+        else {
+            holder.tvEndDate.setText("Không hết hạn");
+            holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, true))+"%");
+        }
+        if(savingAccount.isStatus()==1) {
+            holder.tvStatus.setText("Còn hoạt động");
             holder.tvStatus.setTextColor(Color.parseColor("#61964D"));
         }else{
-            holder.tvStatus.setText("Hết hạn");
+            holder.tvStatus.setText("Ngừng hoạt động");
             holder.tvStatus.setTextColor(Color.parseColor("#A84B40"));
         }
 
@@ -81,7 +87,13 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
             tvStatus = itemView.findViewById(R.id.tv_saving_account_status);
         }
     }
-    public float getInterestRate(SavingAccount savingAccount, List<InterestRate> interestRates){
+    public float getInterestRate(SavingAccount savingAccount, List<InterestRate> interestRates, boolean isForever){
+        if(isForever){
+            for(int i = 0 ; i<interestRates.size();i++){
+                if( 1 == interestRates.get(i).getIdSavingAccountType().getIdSavingAccountType())
+                    return interestRates.get(i).getInterestRate();
+            }
+        }
         int idType = savingAccount.getIdSavingAccountType().getIdSavingAccountType();
         float balance = savingAccount.getBalance();
         int termMonths= getMonthDifference(savingAccount.getStartDate(), savingAccount.getEndDate());
@@ -103,6 +115,7 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
     }
     public static int getMonthDifference(Date startDate, Date endDate) {
         // Ensure startDate is before endDate
+
         if (startDate.after(endDate)) {
             Date temp = startDate;
             startDate = endDate;

@@ -12,7 +12,6 @@ import java.util.Date;
 
 public class DateDeserializer implements JsonDeserializer<Date> {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
     @Override
     public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         try {

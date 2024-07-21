@@ -20,7 +20,11 @@ import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.intent.IntentBankAccount;
 import com.bank.ebanking.intent.IntentTransferMain;
+import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.model.Transaction;
+import com.bank.ebanking.model.User;
+import com.bank.ebanking.services.Services.BankAccountService;
+import com.bank.ebanking.services.Services.UserSessionManager;
 
 
 import java.time.LocalDate;
@@ -34,6 +38,7 @@ public class FragmentMain extends Fragment {
     private AdapterBill adapterBill;
     private RecyclerView recyclerView;
     private List<Transaction> transactions;
+    private User user;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class FragmentMain extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         Intent intent = getActivity().getIntent();
         transactions = (List<Transaction>) intent.getSerializableExtra("transactions");
+        user = (User) intent.getSerializableExtra("user");
         adapterBill = new AdapterBill(transactions);
         recyclerView.setAdapter(adapterBill);
         return view;
@@ -58,10 +64,11 @@ public class FragmentMain extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setEvent() {
         tvCurrDate.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        tvName.setText(transactions.get(0).getAccountNumber().getIdUser().getUserProfile().getName());
+        tvName.setText(user.getUserProfile().getName());
         llBankAccount.setOnClickListener(view -> {
-            Intent bankAccounts= new Intent(view.getContext(), IntentBankAccount.class);
-            startActivity(bankAccounts);
+            BankAccountService.getBankAccounts(UserSessionManager.getUsername(), view.getContext(), new IntentBankAccount());
+//            Intent bankAccounts= new Intent(view.getContext(), IntentBankAccount.class);
+//            startActivity(bankAccounts);
         });
 
         llTransfer.setOnClickListener(view -> {
