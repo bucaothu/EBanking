@@ -42,8 +42,7 @@ public class AuthenticationService {
                     IntentMainScreen intentMainScreen = new IntentMainScreen();
                     TransactionService.getTransactions(responseData.get("username").getAsString(), context, intentMainScreen);
                 } catch (Exception e) {
-//                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
-                    System.out.println(e);
+                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
