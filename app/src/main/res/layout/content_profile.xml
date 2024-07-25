@@ -16,52 +16,23 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
 
-            <TextView
-                android:text="Thông tin tài khoản"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:textSize="28sp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
             <RelativeLayout
-                android:id="@+id/account_setting_name_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:id="@+id/rlEditProfile"
+                style="@style/profileDetailsLayout">
 
                 <ImageView
-                    android:id="@+id/nameImageView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:src="@drawable/person" />
+                    android:id="@+id/changeInfoIcon"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/person"
+                    />
 
                 <TextView
-                    android:id="@+id/settings_nameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/nameImageView"
-                    android:text="Tài khoản"
-                    android:textColor="@color/blackTextColor"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/settings_userNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/nameImageView"
-                    android:text="tài khoản"
-                    android:textColor="@color/blackTextColor"
-                    android:textSize="14sp" />
-
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/changeInfoIcon"
+                    android:text="Đổi thông tin cá nhân"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
+                    />
             </RelativeLayout>
 
             <RelativeLayout
@@ -78,7 +49,8 @@
                     style="@style/profileDetailsTextMain"
                     android:layout_toRightOf="@id/dobImageView"
                     android:text="Đổi mật khẩu"
-                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
                     />
             </RelativeLayout>
             <RelativeLayout

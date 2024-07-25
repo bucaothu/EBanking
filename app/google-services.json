@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320298113278",
+    "project_id": "ebanking-e799d",
+    "storage_bucket": "ebanking-e799d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320298113278:android:3e8fd3c053acdf11dd6daf",
+        "android_client_info": {
+          "package_name": "com.bank.EBanking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYuIUom_7bRZg2cakCLYFmgio1GdyW3Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -58,8 +58,19 @@
         android:layout_marginTop="16dp"
         android:hint="Số tài khoản?"
         android:background="@null"
+        android:inputType="number"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="30sp" />
+    <TextView
+        android:id="@+id/tvNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_number_input"
+        android:layout_marginTop="5dp"
+        android:textColor="#AFB1B3"
+        android:text="Nếu để trống, hệ thống sẽ tự sinh ngẫu nhiên"
+        android:visibility="gone"
+        android:textSize="15sp"/>
     <Button
         android:id="@+id/btn_continue_transfer"
         android:layout_width="match_parent"

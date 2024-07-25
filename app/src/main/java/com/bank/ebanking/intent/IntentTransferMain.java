@@ -1,18 +1,25 @@
 package com.bank.ebanking.intent;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
+import com.bank.ebanking.services.Services.BankAccountService;
+import com.bank.ebanking.services.Services.UserSessionManager;
 
 public class IntentTransferMain extends AppCompatActivity {
     Button btnContinueTransfer;
     ImageButton btnBackHome;
+    EditText edtAccountNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +38,13 @@ public class IntentTransferMain extends AppCompatActivity {
         });
 
         btnContinueTransfer.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                Intent transferDetails= new Intent(IntentTransferMain.this, IntentTransferDetails.class);
-                startActivity(transferDetails);
+                if(edtAccountNumber.getText().toString().length()<8){
+                    Toast.makeText(IntentTransferMain.this, "Xin hãy nhập giá trị phù hợp", Toast.LENGTH_SHORT).show();
+                }
+                BankAccountService.getBankAccount(edtAccountNumber.getText().toString(), UserSessionManager.getUsername(), IntentTransferMain.this, new IntentTransferDetails());
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         });
@@ -43,5 +53,6 @@ public class IntentTransferMain extends AppCompatActivity {
     private void setControl() {
         btnContinueTransfer = findViewById(R.id.btn_continue_transfer);
         btnBackHome = findViewById(R.id.btn_back_home);
+        edtAccountNumber = findViewById(R.id.account_number_input);
     }
 }

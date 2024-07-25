@@ -1,15 +1,24 @@
 plugins {
-    id 'com.android.application'
+    id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
-
+    signingConfigs {
+        my_config {
+            storeFile file('C:\\Users\\THAIHOANG\\Desktop\\keystore.jks')
+            storePassword '123456'
+            keyAlias 'Hoang'
+            keyPassword '123456'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.bank.EBanking"
         minSdkVersion 21
-        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -20,6 +29,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.my_config
         }
     }
     compileOptions {
@@ -73,5 +83,9 @@ dependencies {
 
     implementation 'com.github.ar-android:AndroidSvgLoader:1.0.2'
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+
 
 }

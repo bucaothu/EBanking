@@ -1,16 +1,25 @@
 package com.bank.ebanking.intent;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.SpinnerBankAccountAdapter;
 import com.bank.ebanking.model.BankAccount;
+import com.bank.ebanking.services.Services.TransactionService;
+import com.bank.ebanking.services.Services.UserSessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +27,9 @@ import java.util.List;
 public class IntentTransferDetails extends AppCompatActivity {
     Spinner spinner;
     ImageButton btnBack;
+    EditText edtTransferAmount, edtTransferDetail;
+    TextView toPerson, toAccount, tvNoBankAccount;
+    Button btnFinishTransfer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,35 +39,66 @@ public class IntentTransferDetails extends AppCompatActivity {
     }
 
     private void setEvent() {
-//        UserProfile userProfile1 = new UserProfile("John Doe", "1234567890", "john.doe@example.com", "CCCD123");
-//        UserProfile userProfile2 = new UserProfile("Jane Smith", "0987654321", "jane.smith@example.com", "CCCD456");
-//        User user1 = new User("john_doe", "password123", "1234", true, userProfile1);
-//        User user2 = new User("jane_smith", "password456", "5678", true, userProfile2);
-//
-//        BankAccount account1 = new BankAccount("ACC001", 1500.50f, user1);
-//        BankAccount account2 = new BankAccount("ACC002", 2500.00f, user1);
-//        BankAccount account3 = new BankAccount("ACC003", 3500.75f, user2);
-//        BankAccount account4 = new BankAccount("ACC004", 4500.20f, user2);
-//        BankAccount account5 = new BankAccount("ACC005", 5500.90f, user1);
-
-        // Add BankAccount objects to a list
-        List<BankAccount> bankAccounts = new ArrayList<>();
-//        bankAccounts.add(account1);
-//        bankAccounts.add(account2);
-//        bankAccounts.add(account3);
-//        bankAccounts.add(account4);
-//        bankAccounts.add(account5);
-        SpinnerBankAccountAdapter adapter = new SpinnerBankAccountAdapter(this, bankAccounts);
-        spinner.setAdapter(adapter);
+        Intent intent = getIntent();
+        List<BankAccount> bankAccounts = (List<BankAccount>) intent.getSerializableExtra("bankAccounts");
+        BankAccount toBankAccount = (BankAccount) intent.getSerializableExtra("bankAccount");
+        toPerson.setText(toBankAccount.getIdUser().getUserProfile().getName());
+        toAccount.setText(toBankAccount.getAccountNumber());
+        if(bankAccounts.size()==0){
+            spinner.setVisibility(View.GONE);
+            tvNoBankAccount.setVisibility(View.VISIBLE);
+            btnFinishTransfer.setVisibility(View.GONE);
+        }
+        else {
+            SpinnerBankAccountAdapter adapter = new SpinnerBankAccountAdapter(this, bankAccounts);
+            spinner.setAdapter(adapter);
+        }
         btnBack.setOnClickListener(view -> {
             Intent transferMain= new Intent(IntentTransferDetails.this, IntentTransferMain.class);
             startActivity(transferMain);
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
+        });
+        final BankAccount[] selectedBankAccount = {new BankAccount()};
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedBankAccount[0] = (BankAccount) adapterView.getItemAtPosition(i);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        btnFinishTransfer.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                if(selectedBankAccount[0] == null){
+                    Toast.makeText(IntentTransferDetails.this, "Xin hãy chọn một tài khoản để gửi", Toast.LENGTH_SHORT).show();
+                } else if (edtTransferAmount.getText().toString().equals("")) {
+                    Toast.makeText(IntentTransferDetails.this, "Xin hãy nhập số tiền gửi", Toast.LENGTH_SHORT).show();
+                } else if (Integer.parseInt(edtTransferAmount.getText().toString())>selectedBankAccount[0].getBalance()) {
+                    Toast.makeText(IntentTransferDetails.this, "Số tiền gửi lớn hơn số dư trong tài khoản", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(IntentTransferDetails.this, IntentVerifyOTP.class);
+                    intent.putExtra("bankAccount", selectedBankAccount[0]);
+                    intent.putExtra("toBankAccount", toBankAccount);
+                    intent.putExtra("amount", Integer.parseInt(edtTransferAmount.getText().toString()));
+                    intent.putExtra("detail", edtTransferDetail.getText().toString());
+                    TransactionService.otp(UserSessionManager.getUsername(), IntentTransferDetails.this, intent);
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                }
+            }
         });
     }
 
     private void setControl() {
         spinner = findViewById(R.id.spinner_bank_accounts);
         btnBack = findViewById(R.id.btn_back_transfer_main);
+        edtTransferAmount = findViewById(R.id.transferAmount);
+        edtTransferDetail = findViewById(R.id.transferDetail);
+        toPerson = findViewById(R.id.to_account_name);
+        toAccount = findViewById(R.id.to_account_number);
+        btnFinishTransfer = findViewById(R.id.cbtn_finish_transfer);
+        tvNoBankAccount = findViewById(R.id.noBankAccountTextView);
     }
 }

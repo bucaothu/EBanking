@@ -27,11 +27,14 @@ public class FragmentSavingAccounts extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ArrayList<SavingAccount> savingAccounts = new ArrayList<>();
         ArrayList<InterestRate> interestRates = new ArrayList<>();
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            savingAccounts.addAll((ArrayList<SavingAccount>) bundle.getSerializable("savingAccounts"));
-            interestRates.addAll((ArrayList<InterestRate>) bundle.getSerializable("interestRates"));
-        }
+//        Bundle bundle = getArguments();
+//        if (bundle != null) {
+//            savingAccounts.addAll((ArrayList<SavingAccount>) bundle.getSerializable("savingAccounts"));
+//            interestRates.addAll((ArrayList<InterestRate>) bundle.getSerializable("interestRates"));
+//        }
+//        bankAccounts = (ArrayList<BankAccount>) intent.getSerializableExtra("bankAccounts");
+        savingAccounts = (ArrayList<SavingAccount>) getActivity().getIntent().getSerializableExtra("savingAccounts");
+        interestRates = (ArrayList<InterestRate>) getActivity().getIntent().getSerializableExtra("InterestRates");
         AdapterSavingAccounts adapterSavingAccounts = new AdapterSavingAccounts(savingAccounts, interestRates);
         recyclerView.setAdapter(adapterSavingAccounts);
         return view;
