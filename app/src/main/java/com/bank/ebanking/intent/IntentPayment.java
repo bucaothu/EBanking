@@ -13,6 +13,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
+import com.bank.ebanking.model.BankAccount;
+import com.bank.ebanking.services.Services.BankAccountService;
+import com.bank.ebanking.services.Services.UserSessionManager;
 
 public class IntentPayment extends AppCompatActivity {
     LinearLayout llBillPayment, llTopUp;
@@ -44,9 +47,12 @@ public class IntentPayment extends AppCompatActivity {
             }
         });
         llTopUp.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-
+                Intent intent = getIntent();
+                intent.setClass(IntentPayment.this, IntentTopUp.class);
+                BankAccountService.getBankAccounts(UserSessionManager.getUsername(), IntentPayment.this, intent, false);
             }
         });
     }

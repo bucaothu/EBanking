@@ -63,6 +63,8 @@
         <activity android:name="com.bank.ebanking.intent.IntentBillDetails" />
         <activity android:name="com.bank.ebanking.intent.IntentPayBill" />
         <activity android:name="com.bank.ebanking.intent.IntentPayment" />
+        <activity android:name="com.bank.ebanking.intent.IntentTopUp" />
+
         <activity
             android:name="com.google.firebase.auth.internal.RecaptchaActivity"
             android:excludeFromRecents="true"

@@ -165,4 +165,31 @@ public class TransactionService {
             }
         });
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void topUp(Map<String, Object> data, Context context) {
+        TransactionAPIService.service.topUp(data).enqueue(new Callback<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                try {
+                    if(response.body()!= null){
+                        Toast.makeText(context, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                        IntentMainScreen intentMainScreen = new IntentMainScreen();
+                        TransactionService.getTransactions(UserSessionManager.getUsername(), context, intentMainScreen);
+                    }
+                    else{
+                        Toast.makeText(context, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e);
+                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                Toast.makeText(context, "Lỗi đã xảy ra", Toast.LENGTH_SHORT).show();
+                System.out.println(t);
+            }
+        });
+    }
 }

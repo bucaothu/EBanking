@@ -32,4 +32,6 @@ public interface TransactionAPIService extends APIService {
     Call<JsonElement> getBill(@Body Map<String, String> data);
     @POST("api/transactions/payBill")
     Call<String> payBill(@Body Map<String, Object> data);
+    @POST("api/transactions/topUp")
+    Call<String> topUp(@Body Map<String, Object> data);
 }

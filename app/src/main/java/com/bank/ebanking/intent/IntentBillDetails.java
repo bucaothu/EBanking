@@ -17,7 +17,6 @@ import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.SpinnerBankAccountAdapter;
 import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.model.BillDetail;
-import com.bank.ebanking.model.Transaction;
 import com.bank.ebanking.services.Services.TransactionService;
 
 import java.util.HashMap;
