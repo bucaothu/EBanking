@@ -5,6 +5,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.bank.ebanking.model.Transaction;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 import java.util.Map;
@@ -26,4 +28,8 @@ public interface TransactionAPIService extends APIService {
     Call<String> transfer(@Body Map<String, Object> data);
     @GET("api/transactions/otp/{username}")
     Call<String> otp(@Path("username") String username);
+    @POST("api/transactions/getBill")
+    Call<JsonElement> getBill(@Body Map<String, String> data);
+    @POST("api/transactions/payBill")
+    Call<String> payBill(@Body Map<String, Object> data);
 }

@@ -3,6 +3,8 @@ package com.bank.ebanking.intent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -58,6 +60,16 @@ public class IntentTransferDetails extends AppCompatActivity {
             startActivity(transferMain);
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
         });
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("") || source.toString().matches("[0-9]*")) {
+                    return null; // Accept the input
+                }
+                return ""; // Reject the input
+            }
+        };
+        edtTransferAmount.setFilters(new InputFilter[]{filter});
         final BankAccount[] selectedBankAccount = {new BankAccount()};
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

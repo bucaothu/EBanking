@@ -74,6 +74,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Số căn cước công dân"></EditText>
     </LinearLayout>
     <LinearLayout
@@ -98,6 +99,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Số điện thoại"></EditText>
     </LinearLayout>
     <LinearLayout

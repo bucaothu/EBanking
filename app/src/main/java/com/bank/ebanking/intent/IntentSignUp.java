@@ -2,6 +2,8 @@ package com.bank.ebanking.intent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +30,17 @@ public class IntentSignUp extends AppCompatActivity {
     }
 
     private void setEvent() {
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("") || source.toString().matches("[0-9]*")) {
+                    return null; // Accept the input
+                }
+                return ""; // Reject the input
+            }
+        };
+        edtCccd.setFilters(new InputFilter[]{filter});
+        edtPhone.setFilters(new InputFilter[]{filter});
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

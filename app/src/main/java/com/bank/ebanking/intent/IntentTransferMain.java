@@ -3,6 +3,8 @@ package com.bank.ebanking.intent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +31,16 @@ public class IntentTransferMain extends AppCompatActivity {
     }
 
     private void setEvent() {
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("") || source.toString().matches("[0-9]*")) {
+                    return null; // Accept the input
+                }
+                return ""; // Reject the input
+            }
+        };
+        edtAccountNumber.setFilters(new InputFilter[]{filter});
         btnBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +53,7 @@ public class IntentTransferMain extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                if(edtAccountNumber.getText().toString().length()<8){
+                if(edtAccountNumber.getText().toString().length()!=11){
                     Toast.makeText(IntentTransferMain.this, "Xin hãy nhập giá trị phù hợp", Toast.LENGTH_SHORT).show();
                 }
                 BankAccountService.getBankAccount(edtAccountNumber.getText().toString(), UserSessionManager.getUsername(), IntentTransferMain.this, new IntentTransferDetails());

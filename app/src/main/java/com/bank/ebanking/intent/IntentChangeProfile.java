@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +39,17 @@ public class IntentChangeProfile extends AppCompatActivity {
     private void setEvent() {
         Intent intent = this.getIntent();
         userProfile = (UserProfile) intent.getSerializableExtra("userProfile");
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("") || source.toString().matches("[0-9]*")) {
+                    return null; // Accept the input
+                }
+                return ""; // Reject the input
+            }
+        };
+        edtPhone.setFilters(new InputFilter[]{filter});
+        edtCccd.setFilters(new InputFilter[]{filter});
         edtName.setText(userProfile.getName());
         edtName.setHint(userProfile.getName());
         edtEmail.setText(userProfile.getEmail());

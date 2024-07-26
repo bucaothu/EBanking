@@ -19,8 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.intent.IntentBankAccount;
+import com.bank.ebanking.intent.IntentPayment;
 import com.bank.ebanking.intent.IntentTransferMain;
-import com.bank.ebanking.model.BankAccount;
+
 import com.bank.ebanking.model.Transaction;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.services.Services.BankAccountService;
@@ -33,7 +34,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class FragmentMain extends Fragment {
-    LinearLayout llBankAccount, llTransfer;
+    LinearLayout llBankAccount, llTransfer, llPayment;
     TextView tvCurrDate, tvName;
     private AdapterBill adapterBill;
     private RecyclerView recyclerView;
@@ -67,19 +68,27 @@ public class FragmentMain extends Fragment {
         tvName.setText(user.getUserProfile().getName());
         llBankAccount.setOnClickListener(view -> {
             BankAccountService.getBankAccounts(UserSessionManager.getUsername(), view.getContext(), new IntentBankAccount());
-//            Intent bankAccounts= new Intent(view.getContext(), IntentBankAccount.class);
-//            startActivity(bankAccounts);
         });
 
         llTransfer.setOnClickListener(view -> {
             Intent transfer= new Intent(view.getContext(), IntentTransferMain.class);
             startActivity(transfer);
         });
+
+        llPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = getActivity().getIntent();
+                intent.setClass(getContext(), IntentPayment.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setControl(View view) {
         llBankAccount = view.findViewById(R.id.llBankAccount);
         llTransfer = view.findViewById(R.id.ll_transaction);
+        llPayment = view.findViewById(R.id.linear_layout_payment);
         tvCurrDate = view.findViewById(R.id.text_view_date_main);
         tvName = view.findViewById(R.id.text_view_name);
     }

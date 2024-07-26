@@ -3,6 +3,8 @@ package com.bank.ebanking.intent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +41,16 @@ public class IntentAddBankAccount extends AppCompatActivity {
         tvNote.setVisibility(View.VISIBLE);
         btnBack.setVisibility(View.GONE);
         btnConfirm.setText("Xác nhận");
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("") || source.toString().matches("[0-9]*")) {
+                    return null; // Accept the input
+                }
+                return ""; // Reject the input
+            }
+        };
+        edtAccountNumber.setFilters(new InputFilter[]{filter});
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override

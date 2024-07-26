@@ -22,7 +22,7 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
 
     public AdapterBill(List<Transaction> transactionList) {
         itemList.addAll(transactionList);
-        Collections.sort(itemList, (t1, t2) -> t1.getDate().compareTo(t2.getDate()));
+        Collections.sort(itemList, (t1, t2) -> t2.getDate().compareTo(t1.getDate()));
     }
 
     @NonNull
@@ -37,7 +37,9 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Transaction item = itemList.get(position);
         String person, date, amount;
-        person = item.getToAccountNumber().getIdUser().getUserProfile().getName();
+        if(item.getTransactionType().getIdTransactionType()==2)
+            person = item.getDescription();
+        else person = item.getToAccountNumber().getIdUser().getUserProfile().getName();
         date = new SimpleDateFormat("dd-MM-yyyy").format(item.getDate());
         amount = String.valueOf(item.getAmount());
 

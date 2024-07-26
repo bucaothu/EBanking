@@ -52,7 +52,7 @@ public class BankAccountService {
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void getBankAccounts(String data, Context context, Intent intent, boolean animation) {
+    public static void getBankAccounts(String data, Context context, Intent intent, boolean redirect) {
         BankAccountAPIService.service.getBankAccounts(data).enqueue(new Callback<List<BankAccount>>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override

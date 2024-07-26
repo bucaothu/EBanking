@@ -115,7 +115,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_layout_request_money"
+            android:id="@+id/linear_layout_payment"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
