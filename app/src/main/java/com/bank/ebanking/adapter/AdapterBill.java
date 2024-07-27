@@ -1,15 +1,20 @@
 package com.bank.ebanking.adapter;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bank.EBanking.R;
+import com.bank.ebanking.intent.IntentViewBill;
 import com.bank.ebanking.model.Transaction;
 
 import java.text.SimpleDateFormat;
@@ -46,6 +51,15 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
         holder.person.setText(person);
         holder.date.setText(date);
         holder.amount.setText(amount);
+        holder.btnViewDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = ((Activity) view.getContext()).getIntent();
+                intent.putExtra("transaction", item);
+                intent.setClass(view.getContext(), IntentViewBill.class);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -55,12 +69,14 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView person, amount, date;
+        public ImageButton btnViewDetails;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             person = itemView.findViewById(R.id.txt_toWhom);
             amount = itemView.findViewById(R.id.txt_amount);
             date = itemView.findViewById(R.id.txt_date);
+            btnViewDetails = itemView.findViewById(R.id.btnViewDetail);
         }
     }
 }

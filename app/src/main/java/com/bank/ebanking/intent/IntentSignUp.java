@@ -63,15 +63,12 @@ public class IntentSignUp extends AppCompatActivity {
                     signUpData.put("cccd", cccd);
                     signUpData.put("username", username);
                     signUpData.put("password", signUpPassword);
-                    Intent intent = new Intent(IntentSignUp.this, IntentPinInput.class);
+                    Intent intent = new Intent(IntentSignUp.this, IntentVerifyPhone.class);
                     Bundle bundle = new Bundle();
                     for (Map.Entry<String, String> entry : signUpData.entrySet()) {
                         bundle.putString(entry.getKey(), entry.getValue());
                     }
                     intent.putExtras(bundle);
-                    intent.putExtra("displayText", "Hãy nhập mã PIN");
-                    intent.putExtra("endPoint", "signUp");
-                    intent.putExtra("isRetype", true);
                     startActivity(intent);
                 }
             }

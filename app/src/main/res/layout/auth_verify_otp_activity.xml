@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="OTP Verification"
+        android:text="Xác nhận mã OTP"
         android:textColor="#000"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -44,7 +44,7 @@
         android:layout_marginTop="22dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Please Enter The OTP"
+        android:text="Xin hãy nhập mã OTP"
         android:textSize="24sp" />
 
     <LinearLayout
@@ -62,6 +62,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
         <EditText
@@ -72,6 +73,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
         <EditText
@@ -82,6 +84,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
         <EditText
@@ -92,6 +95,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
         <EditText
@@ -102,6 +106,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
         <EditText
@@ -112,6 +117,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#000"
+            android:background="#BBBBBB"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -127,7 +133,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Didn't receive OPT?"
+            android:text="Chưa nhận được mã?"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -139,7 +145,7 @@
             android:background="@drawable/bgv_button"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:text="RESEND"
+            android:text="Gửi lại"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -152,7 +158,7 @@
         android:background="@drawable/bgv_button"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Verify"
+        android:text="Xác nhận"
         android:textSize="24sp" />
 
 </LinearLayout>

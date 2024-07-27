@@ -101,4 +101,26 @@ public class UserService {
             }
         });
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void updatePassword(String username, Map<String, String> data, Context context) {
+        UserAPIService.service.updatePassword(username, data).enqueue(new Callback<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                if(response.errorBody()!=null) {
+                    try {
+                        Toast.makeText(context, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }else{
+                    Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                System.out.println(t);
+            }
+        });
+    }
 }

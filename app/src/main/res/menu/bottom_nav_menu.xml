@@ -6,10 +6,13 @@
         android:title="main"
         android:icon="@drawable/icon_bank" />
     <item
+        android:id="@+id/bills"
+        android:title="bills"
+        android:icon="@drawable/icon_bill" />
+    <item
         android:id="@+id/graph"
         android:title="graph"
-        android:icon="@drawable/icon_bill" />
-
+        android:icon="@drawable/diagram" />
     <item
         android:id="@+id/setting"
         android:title="setting"

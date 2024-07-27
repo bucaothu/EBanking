@@ -11,7 +11,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thống kê chi tiêu"
+        android:text="Danh sách giao dịch"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -59,14 +59,15 @@
         android:id="@+id/btn_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thống kê"
+        android:text="Tìm kiếm"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="16dp"/>
-
-    <!-- Graph Space -->
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_bill"
         android:layout_width="match_parent"
-        android:layout_height="600dp" />
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="400dp"
+        tools:layout_editor_absoluteY="400dp"
+        android:background="@color/white"/>
 </LinearLayout>

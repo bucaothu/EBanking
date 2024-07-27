@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bank.EBanking.R;
+import com.bank.ebanking.fragment.FragmentBills;
 import com.bank.ebanking.fragment.FragmentGraph;
 import com.bank.ebanking.fragment.FragmentMain;
 import com.bank.ebanking.fragment.FragmentProfile;
@@ -33,6 +34,9 @@ public class IntentMainScreen extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.main:
                         fragmentSelected = new FragmentMain();
+                        break;
+                    case R.id.bills:
+                        fragmentSelected = new FragmentBills();
                         break;
                     case R.id.graph:
                         fragmentSelected = new FragmentGraph();
@@ -54,5 +58,8 @@ public class IntentMainScreen extends AppCompatActivity {
         if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.main);
         }
+    }
+    @Override
+    public void onBackPressed() {
     }
 }

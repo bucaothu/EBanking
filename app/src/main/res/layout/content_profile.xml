@@ -53,58 +53,6 @@
                     android:layout_marginTop="5dp"
                     />
             </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/settings_addres_row"
-                style="@style/profileDetailsLayout">
-                <ImageView
-                    android:id="@+id/addressImageView"
-                    style="@style/profileDetailsImage"
-                    android:src="@drawable/redmail"
-                    />
-
-                <TextView
-                    style="@style/profileDetailsTextMain"
-                    android:layout_toRightOf="@id/addressImageView"
-                    android:text="Email"
-
-                    />
-
-                <TextView
-                    android:id="@+id/settings_addressTextView"
-                    style="@style/profileDetailsMiniText"
-                    android:layout_toRightOf="@id/addressImageView"
-
-                    android:text="Avenue 2nd Street NW SY." />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/account_mobile_row"
-                style="@style/profileDetailsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <ImageView
-                    android:id="@+id/mobileImageView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:src="@drawable/phone" />
-
-                <TextView
-                    style="@style/profileDetailsTextMain"
-                    android:layout_toRightOf="@id/mobileImageView"
-                    android:text="Số điện thoại" />
-
-                <TextView
-                    android:id="@+id/settings_phoneTextView"
-                    style="@style/profileDetailsMiniText"
-                    android:layout_toRightOf="@id/mobileImageView"
-                    android:text="+91-8129999999" />
-
-            </RelativeLayout>
 
         </LinearLayout>
 

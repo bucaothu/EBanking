@@ -23,7 +23,6 @@ import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.services.Services.TransactionService;
 import com.bank.ebanking.services.Services.UserSessionManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class IntentTransferDetails extends AppCompatActivity {

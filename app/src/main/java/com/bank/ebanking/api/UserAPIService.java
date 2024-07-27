@@ -32,4 +32,6 @@ public interface UserAPIService extends APIService {
     Call<UserProfile> getUserProfile(@Path("username") String username);
     @PATCH("api/userProfiles/{username}")
     Call<String> updateUserProfile(@Path("username") String username, @Body Map<String, String> account);
+    @PATCH("api/users/{username}")
+    Call<String> updatePassword(@Path("username") String username, @Body Map<String, String> account);
 }
