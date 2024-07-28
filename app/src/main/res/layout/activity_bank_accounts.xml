@@ -42,7 +42,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tài khoản"
+        android:text="@string/title_bank_accouns"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Tổng tài sản"
+            android:text="@string/label_balance"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -92,7 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Thanh toán"
+            android:text="@string/label_bank_accounts_btn"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/tab_background_selector"
@@ -105,7 +105,7 @@
             android:layout_weight="1"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-            android:text="Tiết kiệm"
+            android:text="@string/label_saving_accounts_btn"
             android:background="@drawable/tab_background_selector"
             android:textColor="@drawable/tab_text_selector" />
     </LinearLayout>

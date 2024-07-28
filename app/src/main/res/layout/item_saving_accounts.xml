@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tài khoản tiết kiệm"
+                    android:text="@string/label_info_saving_account_number"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -74,7 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thời gian gửi"
+                    android:text="@string/label_info_saving_account_start_date"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -94,7 +94,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thời gian hết hạn"
+                    android:text="@string/label_info_saving_account_end_date"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -126,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lãi suất"
+                    android:text="@string/label_info_saving_account_interest_rate"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -146,7 +146,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Trạng thái"
+                    android:text="@string/label_info_saving_account_status"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 

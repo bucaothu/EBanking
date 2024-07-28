@@ -9,7 +9,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Danh sách giao dịch"
+        android:text="@string/title_transaction"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -48,7 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ngày:"
+                android:text="@string/label_transaction_date"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mô Tả:"
+                android:text="@string/label_transaction_description"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -100,7 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Từ Tài Khoản:"
+                android:text="@string/label_transaction_from_account"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -126,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Đến Tài Khoản:"
+                android:text="@string/label_transaction_to_account"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -152,7 +152,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tên người nhận:"
+                android:text="@string/label_transaction_to_users_name"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -184,7 +184,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Số Tiền:"
+                android:text="@string/label_transaction_amount"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
 
@@ -206,7 +206,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/button_background"
-        android:text="Sao kê"
+        android:text="@string/btn_make_statement"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutContainer"

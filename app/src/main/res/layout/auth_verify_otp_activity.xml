@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Xác nhận mã OTP"
+        android:text="@string/title_OTP_verification"
         android:textColor="#000"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -44,7 +44,7 @@
         android:layout_marginTop="22dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Xin hãy nhập mã OTP"
+        android:text="@string/label_OTP_input"
         android:textSize="24sp" />
 
     <LinearLayout
@@ -133,7 +133,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chưa nhận được mã?"
+            android:text="@string/label_resend_OTP"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -145,7 +145,7 @@
             android:background="@drawable/bgv_button"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
-            android:text="Gửi lại"
+            android:text="@string/btn_resend_OTP"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -158,7 +158,7 @@
         android:background="@drawable/bgv_button"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Xác nhận"
+        android:text="@string/btn_confirm"
         android:textSize="24sp" />
 
 </LinearLayout>

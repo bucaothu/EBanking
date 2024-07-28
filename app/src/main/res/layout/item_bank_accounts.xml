@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tài khoản thanh toán"
+                android:text="@string/label_info_account_number"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 

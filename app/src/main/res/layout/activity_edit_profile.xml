@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:text="THÔNG TIN CÁ NHÂN" />
+        android:text="@string/title_personal_infos" />
 
     <!-- Name Field -->
     <LinearLayout
@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Họ tên"
+                android:text="@string/label_personal_name"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Nhập họ tên"
+                android:hint="@string/label_edt_personal_name"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -101,7 +101,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Số CCCD"
+                android:text="@string/label_personal_id_number"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Nhập số CCCD"
+                android:hint="@string/label_edt_personal_id_number"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -145,7 +145,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Số điện thoại"
+                android:text="@string/label_personal_phone"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -154,7 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:hint="Nhập số điện thoại"
+                android:hint="@string/label_edt_personal_phone"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -190,7 +190,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/label_personal_email"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Nhập email"
+                android:hint="@string/label_edt_personal_email"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -211,7 +211,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_user_email_sign_up"
-        android:text="Cập nhật"
+        android:text="@string/btn_update"
         android:visibility="gone"
         android:layout_marginTop="30dp"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

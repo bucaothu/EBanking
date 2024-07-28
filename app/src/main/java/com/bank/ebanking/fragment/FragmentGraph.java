@@ -50,8 +50,8 @@ public class FragmentGraph extends Fragment {
     private TextView tvGraphPlaceholder;
     private Calendar startDate = Calendar.getInstance();
     private Calendar endDate = Calendar.getInstance();
-    private final String defaultStartDateText = "Start Date";
-    private final String defaultEndDateText = "End Date";
+    private final String defaultStartDateText = getContext().getResources().getString(R.string.btn_start_date_query);
+    private final String defaultEndDateText = getContext().getResources().getString(R.string.btn_end_date_query);
     private BarChart barChart;
     private List<Transaction> transactions;
 
@@ -84,6 +84,7 @@ public class FragmentGraph extends Fragment {
                 Date endDate = new Date(intent.getLongExtra("endDate", 1));
                 btnStartDate.setText(new SimpleDateFormat("dd/MM/yyyy").format(startDate));
                 btnEndDate.setText(new SimpleDateFormat("dd/MM/yyyy").format(endDate));
+                barChart.setVisibility(View.VISIBLE);
                 query(startDate, endDate, transactions);
             }
         }catch (Exception e){
@@ -105,18 +106,19 @@ public class FragmentGraph extends Fragment {
                         throw new RuntimeException(e);
                     }
                     if (((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) > 182.5) {
-                        Toast.makeText(view.getContext(), "Hãy chọn sao cho phạm vi không quá 6 tháng", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
                     } else if(startDate.getTime()>endDate.getTime()){
-                        Toast.makeText(view.getContext(), "Ngày bắt đầu không được sau ngày kết thúc", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Intent intent = getActivity().getIntent();
                         intent.putExtra("startDate", startDate.getTime());
                         intent.putExtra("endDate", endDate.getTime());
+                        barChart.setVisibility(View.VISIBLE);
                         query(startDate, endDate, transactions);
                     }
                 } else {
-                    Toast.makeText(view.getContext(), "Please select both start and end dates.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
                 }
             }
         });

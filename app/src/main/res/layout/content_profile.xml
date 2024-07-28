@@ -8,52 +8,85 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_profile">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RelativeLayout
+            android:id="@+id/rlEditProfile"
+            style="@style/profileDetailsLayout">
+
+            <ImageView
+                android:id="@+id/changeInfoIcon"
+                style="@style/profileDetailsImage"
+                android:src="@drawable/person"/>
+
+            <TextView
+                style="@style/profileDetailsTextMain"
+                android:layout_toRightOf="@id/changeInfoIcon"
+                android:text="@string/btn_view_personal_details"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlChangePassword"
+            style="@style/profileDetailsLayout">
+
+            <ImageView
+                android:id="@+id/dobImageView"
+                style="@style/profileDetailsImage"
+                android:src="@drawable/lock"/>
+
+            <TextView
+                style="@style/profileDetailsTextMain"
+                android:layout_toRightOf="@id/dobImageView"
+                android:text="@string/btn_change_password"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+        <!-- Language Selection Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_language"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
-            <RelativeLayout
-                android:id="@+id/rlEditProfile"
-                style="@style/profileDetailsLayout">
+            <Button
+                android:id="@+id/btnEnglish"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:background="@drawable/button_background"
+                android:textColor="@color/black"
+                android:layout_marginEnd="10dp"/>
 
-                <ImageView
-                    android:id="@+id/changeInfoIcon"
-                    style="@style/profileDetailsImage"
-                    android:src="@drawable/person"
-                    />
-
-                <TextView
-                    style="@style/profileDetailsTextMain"
-                    android:layout_toRightOf="@id/changeInfoIcon"
-                    android:text="Đổi thông tin cá nhân"
-                    android:textSize="20sp"
-                    android:layout_marginTop="5dp"
-                    />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rlChangePassword"
-                style="@style/profileDetailsLayout">
-
-                <ImageView
-                    android:id="@+id/dobImageView"
-                    style="@style/profileDetailsImage"
-                    android:src="@drawable/lock"
-                    />
-
-                <TextView
-                    style="@style/profileDetailsTextMain"
-                    android:layout_toRightOf="@id/dobImageView"
-                    android:text="Đổi mật khẩu"
-                    android:textSize="20sp"
-                    android:layout_marginTop="5dp"
-                    />
-            </RelativeLayout>
-
+            <Button
+                android:id="@+id/btnVietnamese"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Tiếng Việt"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_background"
+                android:textColor="@color/black"/>
         </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -26,7 +26,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dịch vụ"
+            android:text="@string/title_services"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thanh toán hóa đơn"
+                android:text="@string/btn_pay_bills"
                 android:gravity="center"
                 android:textSize="14sp"/>
         </LinearLayout>
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nạp tiền điện thoại"
+                android:text="@string/btn_top_up"
                 android:gravity="center"
                 android:textSize="14sp"/>
         </LinearLayout>

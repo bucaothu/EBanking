@@ -26,7 +26,7 @@
         android:textSize="40dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="ĐĂNG KÝ"></TextView>
+        android:text="@string/title_sign_up"></TextView>
     <LinearLayout
         android:id="@+id/layout_user_name_sign_up"
         android:paddingLeft="50dp"
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Họ tên"></EditText>
+            android:hint="@string/label_personal_name"></EditText>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_user_cccd_sign_up"
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Số căn cước công dân"></EditText>
+            android:hint="@string/label_personal_id_number"></EditText>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_user_id_sign_up"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Số điện thoại"></EditText>
+            android:hint="@string/label_personal_phone"></EditText>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_user_password"
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Email"></EditText>
+            android:hint="@string/label_personal_email"></EditText>
     </LinearLayout>
 
 
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Tài khoản"></EditText>
+            android:hint="@string/label_username"></EditText>
     </LinearLayout>
 
 
@@ -185,7 +185,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="15dp"
-            android:hint="Mật khẩu"
+            android:hint="@string/label_password"
             android:inputType="textPassword"
             android:textAlignment="center" />
 
@@ -215,7 +215,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="15dp"
-            android:hint="Nhập lại mật khẩu"
+            android:hint="@string/label_confirm_new_password"
             android:inputType="textPassword"
             android:textAlignment="center" />
 
@@ -233,8 +233,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_repassword"
         >
-
-
     </LinearLayout>
 
 
@@ -244,11 +242,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
-        android:onClick="signUp"
-        android:text="ĐĂNG KÝ"
+        android:text="@string/title_sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_profession_sign_up"></Button>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

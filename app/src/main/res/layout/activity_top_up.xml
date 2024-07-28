@@ -7,7 +7,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nạp tiền điện thoại"
+        android:text="@string/title_top_up"
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Số tiền"></EditText>
+            android:hint="@string/label_edt_top_up_amount"></EditText>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_user_id_sign_up"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Số điện thoại"></EditText>
+            android:hint="@string/label_edt_phone_top_up"></EditText>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
         android:id="@+id/tvTypeTelco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Loại nạp tiền"
+        android:text="@string/label_choose_top_up_type"
         android:layout_marginRight="220dp"
         android:layout_marginTop="30dp"
         android:textSize="16sp"
@@ -110,7 +110,7 @@
         android:id="@+id/tvFromAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Từ tài khoản"
+        android:text="@string/label_from_account"
         android:layout_marginRight="220dp"
         android:layout_marginTop="30dp"
         android:textSize="16sp"
@@ -132,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:text="Không có tài khoản ngân hàng"
+        android:text="@string/notify_no_bank_accounts"
         android:textSize="18sp"
         android:layout_marginHorizontal="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:backgroundTint="@color/black"
-        android:text="NẠP TIỀN"
+        android:text="@string/btn_top_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/noBankAccountTextView"></Button>

@@ -48,14 +48,13 @@ public class FragmentBills extends Fragment {
     private Button btnStartDate;
     private Button btnEndDate;
     private Button btnQuery;
-    private TextView tvGraphPlaceholder;
     private AdapterBill adapterBill;
     private List<Transaction> transactions;
     private Calendar startDateFilter = Calendar.getInstance();
     private Calendar endDateFilter = Calendar.getInstance();
     private RecyclerView recyclerView;
-    private final String defaultStartDateText = "Start Date";
-    private final String defaultEndDateText = "End Date";
+    private final String defaultStartDateText = getContext().getResources().getString(R.string.btn_start_date_query);
+    private final String defaultEndDateText = getContext().getResources().getString(R.string.btn_end_date_query);
 
 
     @Nullable
@@ -116,9 +115,9 @@ public class FragmentBills extends Fragment {
                         throw new RuntimeException(e);
                     }
                     if (((endDateFilter.getTime() - startDateFilter.getTime()) / (1000 * 60 * 60 * 24)) > 182.5) {
-                        Toast.makeText(view.getContext(), "Hãy chọn sao cho phạm vi không quá 6 tháng", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
                     } else if(startDateFilter.getTime()>endDateFilter.getTime()){
-                        Toast.makeText(view.getContext(), "Ngày bắt đầu không được sau ngày kết thúc", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Intent intent = getActivity().getIntent();
@@ -127,7 +126,7 @@ public class FragmentBills extends Fragment {
                         query(startDateFilter, endDateFilter, transactions);
                     }
                 } else {
-                    Toast.makeText(view.getContext(), "Please select both start and end dates.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
                 }
             }
         });

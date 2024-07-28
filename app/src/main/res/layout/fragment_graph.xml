@@ -11,7 +11,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thống kê chi tiêu"
+        android:text="@string/title_transaction_statistic"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ngày bắt đầu"
+            android:text="@string/btn_start_date_query"
             android:layout_gravity="center" />
 
         <!-- Space between buttons -->
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ngày kết thúc"
+            android:text="@string/btn_end_date_query"
             android:layout_gravity="center" />
     </LinearLayout>
 
@@ -59,7 +59,7 @@
         android:id="@+id/btn_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thống kê"
+        android:text="@string/btn_query"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="16dp"/>
@@ -68,5 +68,6 @@
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="600dp" />
+        android:layout_height="600dp"
+        android:visibility="gone"/>
 </LinearLayout>

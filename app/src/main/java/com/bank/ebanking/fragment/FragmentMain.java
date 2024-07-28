@@ -65,7 +65,7 @@ public class FragmentMain extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setEvent() {
         tvCurrDate.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        tvName.setText(user.getUserProfile().getName());
+        tvName.setText("Xin chào " + user.getUserProfile().getName());
         llBankAccount.setOnClickListener(view -> {
             BankAccountService.getBankAccounts(UserSessionManager.getUsername(), view.getContext(), new IntentBankAccount());
         });

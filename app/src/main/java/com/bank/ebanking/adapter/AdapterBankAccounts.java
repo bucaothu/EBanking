@@ -1,5 +1,6 @@
 package com.bank.ebanking.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,11 @@ import java.util.List;
 
 public class AdapterBankAccounts extends RecyclerView.Adapter<AdapterBankAccounts.MyViewHolder> {
     private List<BankAccount> bankAccounts = new ArrayList<>();
+    private Context context;
 
-    public AdapterBankAccounts(List<BankAccount> bankAccounts) {
+    public AdapterBankAccounts(List<BankAccount> bankAccounts, Context context) {
         this.bankAccounts.addAll(bankAccounts);
+        this.context = context;
     }
 
     @NonNull
@@ -33,7 +36,7 @@ public class AdapterBankAccounts extends RecyclerView.Adapter<AdapterBankAccount
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         BankAccount bankAccount = bankAccounts.get(position);
         holder.tvAccountNumber.setText(bankAccount.getAccountNumber());
-        holder.tvBalance.setText(String.valueOf(bankAccount.getBalance())+" VND");
+        holder.tvBalance.setText(String.valueOf(bankAccount.getBalance())+" "+context.getResources().getString(R.string.currency));
     }
 
     @Override

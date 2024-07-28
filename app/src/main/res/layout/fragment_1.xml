@@ -27,7 +27,7 @@
         </ImageView>
 
         <LinearLayout
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,30 +53,6 @@
                 android:textColor="@color/white"></TextView>
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/icon_dolar"
-                android:layout_gravity="center"></ImageView>
-
-            <TextView
-                android:id="@+id/text_view_total_money"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1234,321"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"></TextView>
-        </LinearLayout>
-
     </LinearLayout>
 
 
@@ -90,7 +66,6 @@
         android:background="@drawable/user1_corner_rounded"
         android:gravity=""
         android:padding="20dp">
-
 
         <LinearLayout
             android:id="@+id/llBankAccount"
@@ -109,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tài khoản"
+                android:text="@string/btn_bank_accounts"
                 android:textColor="@color/white"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -131,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thanh toán"
+                android:text="@string/btn_services"
                 android:textColor="@color/white"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -153,7 +128,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chuyển tiền"
+                android:text="@string/btn_transfer"
                 android:textColor="@color/white"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -182,7 +157,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lịch sử giao dịch"
+                    android:text="@string/label_transactions_history"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="25dp"></TextView>

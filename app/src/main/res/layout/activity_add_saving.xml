@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:text="GỬI TIỀN" />
+            android:text="@string/title_saving_details" />
 
         <LinearLayout
             android:id="@+id/layoutChooseSavingType"
@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chọn loại tiết kiệm"
+                android:text="@string/label_choose_saving_type"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -78,7 +78,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:text="Tháng cần gửi"
+                    android:text="@string/label_term_months"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_width="0dp"
@@ -87,7 +87,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:text="Tiền cần gửi"
+                    android:text="@string/label_min_balance"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_width="0dp"
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Số tài khoản" />
+                android:hint="@string/label_edt_saving_account" />
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
@@ -139,7 +139,7 @@
             android:paddingLeft="95dp"
             android:paddingRight="50dp"
             android:textSize="10sp"
-            android:text="Nếu để trống, hệ thống sẽ tự tạo"
+            android:text="@string/label_notify_empty_bank_account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_user_name_sign_up">
@@ -168,7 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Thời gian gửi (tháng)" />
+                android:hint="@string/label_edt_term_months" />
         </LinearLayout>
 
         <LinearLayout
@@ -194,7 +194,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Số tiền gửi" />
+                android:hint="@string/label_edt_saving_amount" />
         </LinearLayout>
 
         <LinearLayout
@@ -212,7 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Từ tài khoản"
+                android:text="@string/label_from_account"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -252,7 +252,7 @@
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/black"
             android:onClick="signUp"
-            android:text="GỬI TIỀN"
+            android:text="@string/label_save_money_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_profession_sign_up" />

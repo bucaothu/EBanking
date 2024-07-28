@@ -64,7 +64,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                         <TextView
                             android:id="@+id/btnLogout"
                             style="@style/profileStyledBackButton"
-                            android:text="Đăng xuất"
+                            android:text="@string/btn_log_out"
 
                             android:textColor="@color/whiteTextColor"
                             android:textSize="28sp" />

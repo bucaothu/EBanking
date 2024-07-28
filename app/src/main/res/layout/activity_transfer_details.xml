@@ -21,7 +21,7 @@
         android:layout_toEndOf="@id/btn_back_transfer_main"
         android:layout_alignTop="@id/btn_back_transfer_main"
         android:layout_marginStart="8dp"
-        android:text="Chuyển trong cùng ngân hàng"
+        android:text="@string/title_transfer_details"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Từ tài khoản"
+            android:text="@string/label_from_account"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:text="Không có tài khoản ngân hàng"
+            android:text="@string/notify_no_bank_accounts"
             android:textSize="18sp"
             android:gravity="center" />
         <View
@@ -62,7 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đến tài khoản"
+            android:text="@string/label_transfer_to_account"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Số tiền"
+            android:text="@string/label_transfer_amount"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -120,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Số tiền"
+            android:hint="@string/label_edt_transfer_amount"
             android:inputType="number" />
         <View
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nội dung chuyển tiền"
+            android:text="@string/label_transfer_description"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -141,7 +141,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Nội dung"/>
+            android:hint="@string/label_edt_transfer_description"/>
 
 
     </LinearLayout>
@@ -153,7 +153,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
-        android:text="Chuyển tiền"
+        android:text="@string/btn_transfer"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
