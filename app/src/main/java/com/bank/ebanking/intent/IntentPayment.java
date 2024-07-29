@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -13,7 +11,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
-import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.services.Services.BankAccountService;
 import com.bank.ebanking.services.Services.UserSessionManager;
 

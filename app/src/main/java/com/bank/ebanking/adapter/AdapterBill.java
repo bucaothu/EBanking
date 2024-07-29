@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> {
-    private List<Transaction> itemList = new ArrayList<>();
+    private final List<Transaction> itemList = new ArrayList<>();
 
     public AdapterBill(List<Transaction> transactionList) {
         itemList.addAll(transactionList);

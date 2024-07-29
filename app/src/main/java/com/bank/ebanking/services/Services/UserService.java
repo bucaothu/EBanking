@@ -13,15 +13,9 @@ import com.bank.EBanking.R;
 import com.bank.ebanking.api.UserAPIService;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.model.UserProfile;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;

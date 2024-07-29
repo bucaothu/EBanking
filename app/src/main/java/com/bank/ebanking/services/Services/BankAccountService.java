@@ -1,7 +1,5 @@
 package com.bank.ebanking.services.Services;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -10,7 +8,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.api.BankAccountAPIService;

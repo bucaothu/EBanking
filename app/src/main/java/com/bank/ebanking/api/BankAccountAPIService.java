@@ -5,7 +5,6 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.UserProfile;
 
 import java.util.List;
 import java.util.Map;

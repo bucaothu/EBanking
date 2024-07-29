@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,26 +19,22 @@ import com.bank.EBanking.R;
 import com.bank.ebanking.model.Transaction;
 import com.bank.ebanking.services.Services.UserSessionManager;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -47,8 +42,8 @@ public class FragmentGraph extends Fragment {
     private Button btnStartDate;
     private Button btnEndDate;
     private Button btnQuery;
-    private Calendar startDate = Calendar.getInstance();
-    private Calendar endDate = Calendar.getInstance();
+    private final Calendar startDate = Calendar.getInstance();
+    private final Calendar endDate = Calendar.getInstance();
     private String defaultStartDateText;
     private String defaultEndDateText;
     private BarChart barChart;
@@ -65,7 +60,7 @@ public class FragmentGraph extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         defaultStartDateText  = requireContext().getResources().getString(R.string.btn_start_date_query);
-        defaultEndDateText = requireContext().getResources().getString(R.string.btn_end_date_query);;
+        defaultEndDateText = requireContext().getResources().getString(R.string.btn_end_date_query);
         setControl(view);
         setEvent();
     }

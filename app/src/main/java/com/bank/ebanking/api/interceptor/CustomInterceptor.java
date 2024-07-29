@@ -3,9 +3,10 @@ package com.bank.ebanking.api.interceptor;
 
 import androidx.annotation.NonNull;
 
+import com.bank.ebanking.services.Services.UserSessionManager;
+
 import java.io.IOException;
 
-import com.bank.ebanking.services.Services.UserSessionManager;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

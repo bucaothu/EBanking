@@ -10,13 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bank.EBanking.R;
-
 import com.bank.ebanking.adapter.AdapterSavingAccounts;
-import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.model.InterestRate;
 import com.bank.ebanking.model.SavingAccount;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentSavingAccounts extends Fragment {
     public FragmentSavingAccounts() {}

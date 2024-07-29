@@ -9,13 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.bank.ebanking.api.TransactionAPIService;
 import com.bank.ebanking.intent.IntentMainScreen;
 import com.bank.ebanking.model.BillDetail;
 import com.bank.ebanking.model.Transaction;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 

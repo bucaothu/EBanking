@@ -4,23 +4,23 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.model.Transaction;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-
-import android.provider.MediaStore;
 
 public class IntentViewBill extends AppCompatActivity {
     // Khai báo các biến để liên kết với các view

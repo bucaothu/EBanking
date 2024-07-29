@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterBankAccounts extends RecyclerView.Adapter<AdapterBankAccounts.MyViewHolder> {
-    private List<BankAccount> bankAccounts = new ArrayList<>();
-    private Context context;
+    private final List<BankAccount> bankAccounts = new ArrayList<>();
+    private final Context context;
 
     public AdapterBankAccounts(List<BankAccount> bankAccounts, Context context) {
         this.bankAccounts.addAll(bankAccounts);
@@ -36,7 +36,7 @@ public class AdapterBankAccounts extends RecyclerView.Adapter<AdapterBankAccount
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         BankAccount bankAccount = bankAccounts.get(position);
         holder.tvAccountNumber.setText(bankAccount.getAccountNumber());
-        holder.tvBalance.setText(String.valueOf(bankAccount.getBalance())+" "+context.getResources().getString(R.string.currency));
+        holder.tvBalance.setText(bankAccount.getBalance() +" "+context.getResources().getString(R.string.currency));
     }
 
     @Override

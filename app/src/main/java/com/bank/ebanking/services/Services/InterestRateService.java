@@ -6,7 +6,6 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
 import com.bank.ebanking.api.InterestRateAPIService;

@@ -16,8 +16,8 @@ import com.bank.ebanking.model.SavingAccountType;
 import java.util.List;
 
 public class SpinnerSavingAccountTypeAdapter extends ArrayAdapter<SavingAccountType> {
-    private Context context;
-    private List<SavingAccountType> savingAccountTypes;
+    private final Context context;
+    private final List<SavingAccountType> savingAccountTypes;
 
     public SpinnerSavingAccountTypeAdapter(Context context, List<SavingAccountType> savingAccountTypes) {
         super(context, 0, savingAccountTypes);

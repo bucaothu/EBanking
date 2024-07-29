@@ -1,9 +1,6 @@
 package com.bank.ebanking.fragment;
 
 import static android.content.Context.MODE_PRIVATE;
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
-
-import static org.apache.xerces.dom.DOMMessageFormatter.setLocale;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 

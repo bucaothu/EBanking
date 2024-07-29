@@ -10,7 +10,6 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -249,7 +248,7 @@ public class IntentAddSavingAccount extends AppCompatActivity {
                 if(selectedSavingAccountType.getIdSavingAccountType() == interestRates.get(i).getIdSavingAccountType().getIdSavingAccountType()
                         && Integer.parseInt(amount) >= interestRates.get(i).getMinBalance()){
                     if(selectedSavingAccountType.getIdSavingAccountType() == 1 || Integer.parseInt(termMonths) > interestRates.get(i).getTermMonths()){
-                        tvNotifyIR.setText(getResources().getString(R.string.notify_interest_rate)+String.valueOf(interestRates.get(i).getInterestRate())+"%");
+                        tvNotifyIR.setText(getResources().getString(R.string.notify_interest_rate)+ interestRates.get(i).getInterestRate() +"%");
                         btnAgree.setVisibility(View.VISIBLE);
                         isSet = true;
                     }

@@ -21,16 +21,13 @@ import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.intent.IntentBankAccount;
 import com.bank.ebanking.intent.IntentPayment;
 import com.bank.ebanking.intent.IntentTransferMain;
-
 import com.bank.ebanking.model.Transaction;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.services.Services.BankAccountService;
 import com.bank.ebanking.services.Services.UserSessionManager;
 
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import java.util.List;
 
 public class FragmentMain extends Fragment {

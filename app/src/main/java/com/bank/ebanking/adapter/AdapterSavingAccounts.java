@@ -1,9 +1,5 @@
 package com.bank.ebanking.adapter;
 
-import static android.app.PendingIntent.getActivity;
-
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -17,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.model.InterestRate;
 import com.bank.ebanking.model.SavingAccount;
-import com.bank.ebanking.model.SavingAccount;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,9 +20,9 @@ import java.util.Date;
 import java.util.List;
 
 public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAccounts.MyViewHolder> {
-    private List<SavingAccount> savingAccounts;
-    private List<InterestRate> interestRates;
-    private Context context;
+    private final List<SavingAccount> savingAccounts;
+    private final List<InterestRate> interestRates;
+    private final Context context;
 
     public AdapterSavingAccounts(List<SavingAccount> savingAccountsInp, List<InterestRate>interestRatesInp, Context context) {
         savingAccounts = new ArrayList<>();
@@ -58,11 +53,11 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
         holder.tvStartDate.setText(sdf.format(savingAccount.getStartDate()));
         if(savingAccount.getEndDate()!= null){
             holder.tvEndDate.setText(sdf.format(savingAccount.getEndDate()));
-            holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, false))+"%");
+            holder.tvInterestRate.setText(getInterestRate(savingAccount, interestRates, false) +"%");
         }
         else {
             holder.tvEndDate.setText(context.getResources().getString(R.string.account_status_non_expire));
-            holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, true))+"%");
+            holder.tvInterestRate.setText(getInterestRate(savingAccount, interestRates, true) +"%");
         }
         if(savingAccount.isStatus()==1) {
             holder.tvStatus.setText(context.getResources().getString(R.string.account_status_active));

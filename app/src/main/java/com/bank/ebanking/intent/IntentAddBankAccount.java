@@ -1,6 +1,5 @@
 package com.bank.ebanking.intent;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;

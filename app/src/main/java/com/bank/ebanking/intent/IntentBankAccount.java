@@ -19,15 +19,11 @@ import com.bank.ebanking.fragment.FragmentSavingAccounts;
 import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.model.InterestRate;
 import com.bank.ebanking.model.SavingAccount;
-import com.bank.ebanking.model.SavingAccountType;
-import com.bank.ebanking.model.Transaction;
 import com.bank.ebanking.services.Services.SavingAccountTypeService;
 import com.bank.ebanking.services.Services.TransactionService;
 import com.bank.ebanking.services.Services.UserSessionManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class IntentBankAccount extends AppCompatActivity {
     ImageButton btnBack, btnAdd;

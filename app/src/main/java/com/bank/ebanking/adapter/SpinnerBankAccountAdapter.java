@@ -16,8 +16,8 @@ import com.bank.ebanking.model.BankAccount;
 import java.util.List;
 
 public class SpinnerBankAccountAdapter extends ArrayAdapter<BankAccount> {
-    private Context context;
-    private List<BankAccount> accounts;
+    private final Context context;
+    private final List<BankAccount> accounts;
 
     public SpinnerBankAccountAdapter(Context context, List<BankAccount> accounts) {
         super(context, 0, accounts);

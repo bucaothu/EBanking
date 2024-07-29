@@ -1,10 +1,6 @@
 package com.bank.ebanking.model;
 
 import java.io.Serializable;
-import java.time.Period;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class SavingAccountType implements Serializable {
     private int idSavingAccountType;

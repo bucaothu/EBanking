@@ -6,18 +6,15 @@ import androidx.annotation.RequiresApi;
 
 import com.bank.ebanking.model.Transaction;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
-
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public interface TransactionAPIService extends APIService {

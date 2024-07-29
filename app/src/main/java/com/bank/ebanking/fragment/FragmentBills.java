@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,26 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBill;
 import com.bank.ebanking.model.Transaction;
-import com.bank.ebanking.model.User;
 import com.bank.ebanking.services.Services.UserSessionManager;
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FragmentBills extends Fragment {
@@ -50,8 +36,8 @@ public class FragmentBills extends Fragment {
     private Button btnQuery;
     private AdapterBill adapterBill;
     private List<Transaction> transactions;
-    private Calendar startDateFilter = Calendar.getInstance();
-    private Calendar endDateFilter = Calendar.getInstance();
+    private final Calendar startDateFilter = Calendar.getInstance();
+    private final Calendar endDateFilter = Calendar.getInstance();
     private RecyclerView recyclerView;
     private String defaultStartDateText;
     private String defaultEndDateText;
