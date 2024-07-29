@@ -130,13 +130,13 @@ public class IntentAddSavingAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(edtAmount.getText().toString().equals("")){
-                    Toast.makeText(context, "Hãy nhập lượng tiền", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getResources().getString(R.string.toast_no_amount), Toast.LENGTH_SHORT).show();
                 } else if (Integer.parseInt(edtAmount.getText().toString()) > selectedBankAccount.getBalance()) {
-                    Toast.makeText(context, "Lượng tiền muốn gửi lớn hơn số dư", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getResources().getString(R.string.toast_not_enough_money), Toast.LENGTH_SHORT).show();
                 } else if(tvNotifyIR.getText().toString().equals("")){
-                    Toast.makeText(context, "Chưa thể xác định lãi suất", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getResources().getString(R.string.toast_cannot_determine_interest_rate), Toast.LENGTH_SHORT).show();
                 } else if(!edtAccountNumber.getText().toString().equals("") && edtAccountNumber.getText().toString().length()!=11) {
-                    Toast.makeText(context, "Xin hãy nhập số tài khoản có 11 kí tự", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getResources().getString(R.string.toast_11_number_account), Toast.LENGTH_SHORT).show();
                 }   else {
                     int balance = Integer.parseInt(edtAmount.getText().toString());
                     String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
@@ -249,14 +249,14 @@ public class IntentAddSavingAccount extends AppCompatActivity {
                 if(selectedSavingAccountType.getIdSavingAccountType() == interestRates.get(i).getIdSavingAccountType().getIdSavingAccountType()
                         && Integer.parseInt(amount) >= interestRates.get(i).getMinBalance()){
                     if(selectedSavingAccountType.getIdSavingAccountType() == 1 || Integer.parseInt(termMonths) > interestRates.get(i).getTermMonths()){
-                        tvNotifyIR.setText("Lãi suất của bạn sẽ là: "+String.valueOf(interestRates.get(i).getInterestRate())+"%");
+                        tvNotifyIR.setText(getResources().getString(R.string.notify_interest_rate)+String.valueOf(interestRates.get(i).getInterestRate())+"%");
                         btnAgree.setVisibility(View.VISIBLE);
                         isSet = true;
                     }
                 }
             }
             if(!isSet){
-                tvNotifyIR.setText("Thông tin bạn nhập hiện không có mức lãi suất phù hợp");
+                tvNotifyIR.setText(getResources().getString(R.string.notify_cannot_determine_interest_rate));
                 btnAgree.setVisibility(View.GONE);
             }
         } else {

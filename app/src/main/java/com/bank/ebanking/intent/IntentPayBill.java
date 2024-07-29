@@ -42,8 +42,8 @@ public class IntentPayBill extends AppCompatActivity {
 
     private void setEvent() {
         List<String> billTypes = new ArrayList<>();
-        billTypes.add("Hóa đơn tiền điện");
-        billTypes.add("Hóa đơn tiền nước");
+        billTypes.add(getResources().getString(R.string.label_electric_bill));
+        billTypes.add(getResources().getString(R.string.label_water_bill));
         selectedType = billTypes.get(0);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item_text, billTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -89,9 +89,9 @@ public class IntentPayBill extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(edtBillId.getText().toString().isEmpty()){
-                    Toast.makeText(IntentPayBill.this, "Hãy nhập mã số hóa đơn", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentPayBill.this, getResources().getString(R.string.toast_field_empty), Toast.LENGTH_SHORT).show();
                 }else {
-                    if(selectedType.equals("Hóa đơn tiền nước")){
+                    if(selectedType.equals(getResources().getString(R.string.label_water_bill))){
                         Map<String, String> data = new HashMap<>();
                         data.put("billCode", edtBillId.getText().toString());
                         data.put("serviceCode", selectedCompany);

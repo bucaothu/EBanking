@@ -47,11 +47,10 @@ public class FragmentGraph extends Fragment {
     private Button btnStartDate;
     private Button btnEndDate;
     private Button btnQuery;
-    private TextView tvGraphPlaceholder;
     private Calendar startDate = Calendar.getInstance();
     private Calendar endDate = Calendar.getInstance();
-    private final String defaultStartDateText = getContext().getResources().getString(R.string.btn_start_date_query);
-    private final String defaultEndDateText = getContext().getResources().getString(R.string.btn_end_date_query);
+    private String defaultStartDateText;
+    private String defaultEndDateText;
     private BarChart barChart;
     private List<Transaction> transactions;
 
@@ -65,6 +64,8 @@ public class FragmentGraph extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        defaultStartDateText  = requireContext().getResources().getString(R.string.btn_start_date_query);
+        defaultEndDateText = requireContext().getResources().getString(R.string.btn_end_date_query);;
         setControl(view);
         setEvent();
     }
@@ -106,9 +107,9 @@ public class FragmentGraph extends Fragment {
                         throw new RuntimeException(e);
                     }
                     if (((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) > 182.5) {
-                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
                     } else if(startDate.getTime()>endDate.getTime()){
-                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Intent intent = getActivity().getIntent();
@@ -118,7 +119,7 @@ public class FragmentGraph extends Fragment {
                         query(startDate, endDate, transactions);
                     }
                 } else {
-                    Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
                 }
             }
         });

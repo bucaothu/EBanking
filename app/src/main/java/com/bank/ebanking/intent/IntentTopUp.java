@@ -64,8 +64,8 @@ public class IntentTopUp extends AppCompatActivity {
             }
         });
         List<String> telcoType = new ArrayList<>();
-        telcoType.add("Nạp tiền điện thoại trả trước");
-        telcoType.add("Nạp tiền điện thoại trả sau");
+        telcoType.add(getResources().getString(R.string.label_prepaid_phone));
+        telcoType.add(getResources().getString(R.string.label_postpaid_phone));
         selectedType = telcoType.get(0);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item_text, telcoType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,10 +84,10 @@ public class IntentTopUp extends AppCompatActivity {
             public void onClick(View view) {
                 Map<String, Object> data = new HashMap<>();
                 String telco = getNetworkProviders(edtPhone.getText().toString());
-                if (telco.equals("Không tìm thấy")){
-                    Toast.makeText(IntentTopUp.this, "Số điện thoại không đúng định dạng hoặc nhà mạng không hỗ trợ", Toast.LENGTH_SHORT).show();
+                if (telco.equals(getResources().getString(R.string.toast_cannnot_find))){
+                    Toast.makeText(IntentTopUp.this, getResources().getString(R.string.toast_undefined_phone), Toast.LENGTH_SHORT).show();
                 } else if (edtAmount.getText().toString().isEmpty()) {
-                    Toast.makeText(IntentTopUp.this, "Xin hãy nhập số tiền", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTopUp.this, getResources().getString(R.string.toast_no_amount), Toast.LENGTH_SHORT).show();
                 } else if (!edtAmount.getText().toString().equals("10000") &&
                             !edtAmount.getText().toString().equals("20000") &&
                             !edtAmount.getText().toString().equals("30000") &&
@@ -97,12 +97,12 @@ public class IntentTopUp extends AppCompatActivity {
                             !edtAmount.getText().toString().equals("300000") &&
                             !edtAmount.getText().toString().equals("500000") &&
                             !edtAmount.getText().toString().equals("1000000")){
-                    Toast.makeText(IntentTopUp.this, "Xin hãy nhập các mệnh giá: 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000", Toast.LENGTH_LONG).show();
+                    Toast.makeText(IntentTopUp.this, getResources().getString(R.string.toast_unacceptable_amount), Toast.LENGTH_LONG).show();
                 } else if (Integer.parseInt(edtAmount.getText().toString()) > selectedBankAccount[0].getBalance()) {
-                    Toast.makeText(IntentTopUp.this, "Số dư không đủ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTopUp.this, getResources().getString(R.string.toast_not_enough_money), Toast.LENGTH_SHORT).show();
                 } else {
                     data.put("telco", getNetworkProviders(edtPhone.getText().toString()));
-                    if(selectedType.equals("Nạp tiền điện thoại trả trước"))
+                    if(selectedType.equals(getResources().getString(R.string.label_prepaid_phone)))
                         data.put("telcoServiceType", "prepaid");
                     else data.put("telcoServiceType", "postpaid");
                     data.put("phoneNumber", edtPhone.getText().toString());
@@ -189,6 +189,6 @@ public class IntentTopUp extends AppCompatActivity {
                 return networkMap.get(prefix);
             }
         }
-        return "Không tìm thấy";
+        return getResources().getString(R.string.toast_cannnot_find);
     }
 }

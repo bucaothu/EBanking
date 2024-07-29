@@ -54,7 +54,7 @@ public class IntentTransferMain extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(edtAccountNumber.getText().toString().length()!=11){
-                    Toast.makeText(IntentTransferMain.this, "Xin hãy nhập giá trị phù hợp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTransferMain.this, getResources().getString(R.string.toast_11_number_account), Toast.LENGTH_SHORT).show();
                 }
                 BankAccountService.getBankAccount(edtAccountNumber.getText().toString(), UserSessionManager.getUsername(), IntentTransferMain.this, new IntentTransferDetails());
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);

@@ -70,7 +70,7 @@ public class IntentBillDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(selectedBankAccount[0].getBalance()<billDetail.getAmount()){
-                    Toast.makeText(IntentBillDetails.this, "Số dư tài khoản không đủ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentBillDetails.this, getResources().getString(R.string.toast_not_enough_money), Toast.LENGTH_SHORT).show();
                 }else {
                     Map<String, Object> data = new HashMap<>();
                     data.put("accountNumber", selectedBankAccount[0].getAccountNumber());

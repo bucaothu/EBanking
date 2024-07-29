@@ -47,13 +47,13 @@ public class TransactionService {
                     UserService.getUser(data, context, newIntent);
                 } catch (Exception e) {
                     System.out.println(e);
-                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Có lỗi xảy ra", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(@NonNull Call<List<Transaction>> call, @NonNull Throwable t) {
                 System.out.println(t);
-                Toast.makeText(context, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Truy vấn thất bại!", Toast.LENGTH_SHORT).show();
             }
         });
     }

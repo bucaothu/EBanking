@@ -53,8 +53,8 @@ public class FragmentBills extends Fragment {
     private Calendar startDateFilter = Calendar.getInstance();
     private Calendar endDateFilter = Calendar.getInstance();
     private RecyclerView recyclerView;
-    private final String defaultStartDateText = getContext().getResources().getString(R.string.btn_start_date_query);
-    private final String defaultEndDateText = getContext().getResources().getString(R.string.btn_end_date_query);
+    private String defaultStartDateText;
+    private String defaultEndDateText;
 
 
     @Nullable
@@ -67,6 +67,8 @@ public class FragmentBills extends Fragment {
         transactions = (List<Transaction>) intent.getSerializableExtra("transactions");
         adapterBill = new AdapterBill(transactions);
         recyclerView.setAdapter(adapterBill);
+        defaultStartDateText  = requireContext().getResources().getString(R.string.btn_start_date_query);
+        defaultEndDateText = requireContext().getResources().getString(R.string.btn_end_date_query);
         return view;
     }
 
@@ -115,9 +117,9 @@ public class FragmentBills extends Fragment {
                         throw new RuntimeException(e);
                     }
                     if (((endDateFilter.getTime() - startDateFilter.getTime()) / (1000 * 60 * 60 * 24)) > 182.5) {
-                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_start_end_date_6_months), Toast.LENGTH_SHORT).show();
                     } else if(startDateFilter.getTime()>endDateFilter.getTime()){
-                        Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_start_more_than_end), Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Intent intent = getActivity().getIntent();
@@ -126,7 +128,7 @@ public class FragmentBills extends Fragment {
                         query(startDateFilter, endDateFilter, transactions);
                     }
                 } else {
-                    Toast.makeText(view.getContext(), getContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), requireContext().getResources().getString(R.string.warning_no_start_end_date), Toast.LENGTH_SHORT).show();
                 }
             }
         });

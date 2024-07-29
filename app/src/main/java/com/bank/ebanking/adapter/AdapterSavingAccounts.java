@@ -1,5 +1,10 @@
 package com.bank.ebanking.adapter;
 
+import static android.app.PendingIntent.getActivity;
+
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +27,9 @@ import java.util.List;
 public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAccounts.MyViewHolder> {
     private List<SavingAccount> savingAccounts;
     private List<InterestRate> interestRates;
+    private Context context;
 
-    public AdapterSavingAccounts(List<SavingAccount> savingAccountsInp, List<InterestRate>interestRatesInp) {
+    public AdapterSavingAccounts(List<SavingAccount> savingAccountsInp, List<InterestRate>interestRatesInp, Context context) {
         savingAccounts = new ArrayList<>();
         interestRates = new ArrayList<>();
         for(int i = 0; i<savingAccountsInp.size();i++){
@@ -32,8 +38,7 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
         for(int i = 0; i<interestRatesInp.size();i++){
             interestRates.add(interestRatesInp.get(i));
         }
-//        savingAccounts.addAll(savingAccountsInp);
-//        interestRates.addAll(interestRatesInp);
+        this.context = context;
     }
 
     @NonNull
@@ -56,14 +61,14 @@ public class AdapterSavingAccounts extends RecyclerView.Adapter<AdapterSavingAcc
             holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, false))+"%");
         }
         else {
-            holder.tvEndDate.setText("Không hết hạn");
+            holder.tvEndDate.setText(context.getResources().getString(R.string.account_status_non_expire));
             holder.tvInterestRate.setText(String.valueOf(getInterestRate(savingAccount, interestRates, true))+"%");
         }
         if(savingAccount.isStatus()==1) {
-            holder.tvStatus.setText("Còn hoạt động");
+            holder.tvStatus.setText(context.getResources().getString(R.string.account_status_active));
             holder.tvStatus.setTextColor(Color.parseColor("#61964D"));
         }else{
-            holder.tvStatus.setText("Ngừng hoạt động");
+            holder.tvStatus.setText(context.getResources().getString(R.string.account_status_expired));
             holder.tvStatus.setTextColor(Color.parseColor("#A84B40"));
         }
 

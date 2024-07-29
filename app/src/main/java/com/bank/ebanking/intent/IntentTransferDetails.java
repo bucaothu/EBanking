@@ -84,11 +84,11 @@ public class IntentTransferDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(selectedBankAccount[0] == null){
-                    Toast.makeText(IntentTransferDetails.this, "Xin hãy chọn một tài khoản để gửi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTransferDetails.this, getResources().getString(R.string.toast_no_bank_account_chosen), Toast.LENGTH_SHORT).show();
                 } else if (edtTransferAmount.getText().toString().equals("")) {
-                    Toast.makeText(IntentTransferDetails.this, "Xin hãy nhập số tiền gửi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTransferDetails.this, getResources().getString(R.string.toast_no_amount), Toast.LENGTH_SHORT).show();
                 } else if (Integer.parseInt(edtTransferAmount.getText().toString())>selectedBankAccount[0].getBalance()) {
-                    Toast.makeText(IntentTransferDetails.this, "Số tiền gửi lớn hơn số dư trong tài khoản", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentTransferDetails.this, getResources().getString(R.string.toast_not_enough_money), Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(IntentTransferDetails.this, IntentVerifyOTP.class);
                     intent.putExtra("bankAccount", selectedBankAccount[0]);

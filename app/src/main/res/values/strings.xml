@@ -110,4 +110,28 @@
     <string name="warning_start_end_date_6_months">"Hãy chọn sao cho phạm vi không quá 6 tháng"</string>
     <string name="warning_start_more_than_end">Ngày bắt đầu không được sau ngày kết thúc</string>
     <string name="warning_no_start_end_date">Xin hãy chọn cả ngày bắt đầu và kết thúc</string>
+    <string name="account_status_active">Còn hoạt động</string>
+    <string name="account_status_non_expire">Không hết hạn</string>
+    <string name="account_status_expired">Hết hạn</string>
+    <string name="toast_11_number_account">Hãy nhập số tài khoản đủ 11 số</string>
+    <string name="toast_no_amount">Hãy nhập lượng tiền</string>
+    <string name="toast_not_enough_money">Lượng tiền lớn hơn số dư</string>
+    <string name="toast_cannot_determine_interest_rate">Chưa thể xác định lãi suất</string>
+    <string name="notify_cannot_determine_interest_rate">Thông tin bạn nhập hiện không có mức lãi suất phù hợp</string>
+    <string name="notify_interest_rate">Lãi suất của bạn sẽ là: "</string>
+    <string name="toast_field_empty">Vui lòng điền đầy đủ thông tin!</string>
+    <string name="toast_retype_new_password">Mật khẩu mới không khớp!</string>
+    <string name="label_electric_bill">Hóa đơn tiền điện</string>
+    <string name="label_water_bill">Hóa đơn tiền nước</string>
+    <string name="toast_password_length">Mật khẩu phải dài hơn 6 kí tự</string>
+    <string name="label_prepaid_phone">"Nạp tiền điện thoại trả trước</string>
+    <string name="label_postpaid_phone">Nạp tiền điện thoại trả sau</string>
+    <string name="toast_cannnot_find">Không tìm thấy</string>
+    <string name="toast_undefined_phone">Số điện thoại không đúng định dạng hoặc nhà mạng không hỗ trợ</string>
+    <string name="toast_unacceptable_amount">Chỉ chấp nhận: 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000</string>
+    <string name="toast_no_bank_account_chosen">Xin hãy chọn một tài khoản để gửi</string>
+    <string name="toast_username_password">Sai tên người dùng hoặc mật khẩu</string>
+    <string name="toast_error">Có lỗi xảy ra!</string>
+    <string name="toast_register_successful">Đăng kí thành công</string>
+
 </resources>

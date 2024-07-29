@@ -47,6 +47,7 @@ public class BankAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<List<BankAccount>> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });
@@ -72,6 +73,7 @@ public class BankAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<List<BankAccount>> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });
@@ -99,6 +101,7 @@ public class BankAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<BankAccount> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });
@@ -123,6 +126,7 @@ public class BankAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });

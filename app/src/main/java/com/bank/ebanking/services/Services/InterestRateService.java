@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.InterestRateAPIService;
 import com.bank.ebanking.model.InterestRate;
 
@@ -40,6 +41,7 @@ public class InterestRateService {
             }
             @Override
             public void onFailure(@NonNull Call<List<InterestRate>> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });

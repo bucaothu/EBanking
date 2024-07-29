@@ -37,10 +37,8 @@ public class IntentAddBankAccount extends AppCompatActivity {
     }
 
     private void setEvent() {
-        tvTitle.setText("Nhập số tài khoản bạn muốn");
         tvNote.setVisibility(View.VISIBLE);
         btnBack.setVisibility(View.GONE);
-        btnConfirm.setText("Xác nhận");
         InputFilter filter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
@@ -57,7 +55,7 @@ public class IntentAddBankAccount extends AppCompatActivity {
             public void onClick(View view) {
                 String accountNumber = edtAccountNumber.getText().toString();
                 if(!accountNumber.equals("") && accountNumber.length()!=11){
-                    Toast.makeText(IntentAddBankAccount.this, "Hãy nhập số tài khoản đủ 11 số", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentAddBankAccount.this, getResources().getString(R.string.toast_11_number_account), Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Map<String, Object> data = new HashMap<>();

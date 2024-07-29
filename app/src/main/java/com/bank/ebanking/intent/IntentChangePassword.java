@@ -48,9 +48,9 @@ public class IntentChangePassword extends AppCompatActivity {
                 String confirmNewPassword = etConfirmNewPassword.getText().toString();
 
                 if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmNewPassword.isEmpty()) {
-                    Toast.makeText(IntentChangePassword.this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentChangePassword.this, getResources().getString(R.string.toast_field_empty), Toast.LENGTH_SHORT).show();
                 } else if (!newPassword.equals(confirmNewPassword)) {
-                    Toast.makeText(IntentChangePassword.this, "Mật khẩu mới không khớp!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentChangePassword.this, getResources().getString(R.string.toast_retype_new_password), Toast.LENGTH_SHORT).show();
                 } else {
                     Map<String, String> data = new HashMap<>();
                     data.put("password", oldPassword);

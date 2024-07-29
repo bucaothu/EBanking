@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.SavingAccountAPIService;
 import com.bank.ebanking.model.SavingAccount;
 
@@ -42,6 +43,7 @@ public class SavingAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<List<SavingAccount>> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });
@@ -65,6 +67,7 @@ public class SavingAccountService {
             }
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });

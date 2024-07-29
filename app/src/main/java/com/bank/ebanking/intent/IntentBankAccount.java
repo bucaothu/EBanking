@@ -62,7 +62,7 @@ public class IntentBankAccount extends AppCompatActivity {
         for (SavingAccount savingAccount : savingAccounts) {
             totalBalance += savingAccount.getBalance();
         }
-        tvSumBalance.setText((int)totalBalance + "VND");
+        tvSumBalance.setText((int)totalBalance + getResources().getString(R.string.currency));
 
         buttonToFirst.setOnClickListener(v -> loadFragment(new FragmentBankAccounts()));
         buttonToSecond.setOnClickListener(v -> loadFragment(new FragmentSavingAccounts()));

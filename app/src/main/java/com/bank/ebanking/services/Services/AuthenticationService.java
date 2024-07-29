@@ -1,6 +1,5 @@
 package com.bank.ebanking.services.Services;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -9,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.AuthenticationAPIService;
 import com.bank.ebanking.api.interceptor.TokenStorage;
 import com.bank.ebanking.intent.IntentLogin;
@@ -42,12 +42,12 @@ public class AuthenticationService {
                     IntentMainScreen intentMainScreen = new IntentMainScreen();
                     TransactionService.getTransactions(responseData.get("username").getAsString(), context, intentMainScreen);
                 } catch (Exception e) {
-                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, context.getResources().getString(R.string.toast_username_password), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(@NonNull Call<JsonElement> call, @NonNull Throwable t) {
-                Toast.makeText(context, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getResources().getString(R.string.toast_error), Toast.LENGTH_SHORT).show();
                 System.out.println(t);
             }
         });
@@ -60,13 +60,13 @@ public class AuthenticationService {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(context, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, context.getResources().getString(R.string.toast_register_successful), Toast.LENGTH_SHORT).show();
                     context.startActivity(new Intent(context, IntentLogin.class));
                 }
             }
             @Override
             public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
-                Toast.makeText(context, "Thêm tài khoản thất bại", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getResources().getString(R.string.toast_error), Toast.LENGTH_SHORT).show();
                 System.out.println(t);
             }
         });

@@ -124,7 +124,7 @@ public class IntentVerifyPhone extends AppCompatActivity {
                 if (codeInput1.getText().toString().trim().isEmpty() || codeInput2.getText().toString().trim().isEmpty() ||
                         codeInput3.getText().toString().trim().isEmpty() || codeInput4.getText().toString().trim().isEmpty() ||
                         codeInput5.getText().toString().trim().isEmpty() || codeInput6.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(IntentVerifyPhone.this, "Vui long nhap day du ma OPT", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentVerifyPhone.this, getResources().getString(R.string.toast_field_empty), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -164,7 +164,6 @@ public class IntentVerifyPhone extends AppCompatActivity {
                         .setPhoneNumber("+84" + phoneNumber)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // (optional) Activity for callback binding
-                        // If no activity is passed, reCAPTCHA verification can not be used.
                         .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
@@ -183,7 +182,6 @@ public class IntentVerifyPhone extends AppCompatActivity {
                 } else {
                     System.out.println(task.getException().toString());
                     if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
                     }
                 }
             }

@@ -135,7 +135,7 @@ public class IntentChangeProfile extends AppCompatActivity {
                         edtEmail.getText().toString().equals("") ||
                         edtCccd.getText().toString().equals("") ||
                         edtPhone.getText().toString().equals("")){
-                    Toast.makeText(IntentChangeProfile.this, "Không được để rỗng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentChangeProfile.this, getResources().getString(R.string.toast_field_empty), Toast.LENGTH_SHORT).show();
                 }
                 else {
                     data.put("name", edtName.getText().toString());

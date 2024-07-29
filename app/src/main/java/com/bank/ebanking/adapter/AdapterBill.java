@@ -42,8 +42,9 @@ public class AdapterBill extends RecyclerView.Adapter<AdapterBill.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Transaction item = itemList.get(position);
         String person, date, amount;
-        if(item.getTransactionType().getIdTransactionType()==2)
+        if(item.getTransactionType().getIdTransactionType()==2){
             person = item.getDescription();
+        }
         else person = item.getToAccountNumber().getIdUser().getUserProfile().getName();
         date = new SimpleDateFormat("dd-MM-yyyy").format(item.getDate());
         amount = String.valueOf(item.getAmount());

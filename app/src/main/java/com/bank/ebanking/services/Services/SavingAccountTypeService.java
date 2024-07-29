@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.SavingAccountTypeAPIService;
 import com.bank.ebanking.model.SavingAccountType;
 
@@ -44,6 +45,7 @@ public class SavingAccountTypeService {
             }
             @Override
             public void onFailure(@NonNull Call<List<SavingAccountType>> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });

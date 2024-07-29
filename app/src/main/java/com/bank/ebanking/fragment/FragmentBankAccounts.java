@@ -12,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bank.EBanking.R;
 import com.bank.ebanking.adapter.AdapterBankAccounts;
 import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.InterestRate;
-import com.bank.ebanking.model.SavingAccount;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentBankAccounts extends Fragment {
     private AdapterBankAccounts adapterBankAccounts;
@@ -28,10 +25,6 @@ public class FragmentBankAccounts extends Fragment {
         recyclerView = view.findViewById(R.id.rv_bank_accounts);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ArrayList<BankAccount> bankAccounts = new ArrayList<>();
-//        Bundle bundle = getArguments();
-//        if (bundle != null) {
-//            bankAccounts.addAll((ArrayList<BankAccount>) bundle.getSerializable("bankAccounts"));
-//        }
         bankAccounts = (ArrayList<BankAccount>) getActivity().getIntent().getSerializableExtra("bankAccounts");
         adapterBankAccounts = new AdapterBankAccounts(bankAccounts, getContext());
         recyclerView.setAdapter(adapterBankAccounts);

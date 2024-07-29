@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.UserAPIService;
 import com.bank.ebanking.model.User;
 import com.bank.ebanking.model.UserProfile;
@@ -75,6 +76,7 @@ public class UserService {
             }
             @Override
             public void onFailure(@NonNull Call<UserProfile> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });
@@ -98,6 +100,7 @@ public class UserService {
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                 System.out.println(t);
+                context.getResources().getString(R.string.toast_error);
             }
         });
     }
@@ -119,6 +122,7 @@ public class UserService {
             }
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                context.getResources().getString(R.string.toast_error);
                 System.out.println(t);
             }
         });

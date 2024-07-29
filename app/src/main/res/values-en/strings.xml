@@ -100,4 +100,28 @@
     <string name="warning_start_end_date_6_months">Please set the dates less than 6 months apart</string>
     <string name="warning_start_more_than_end">Start date cannot be after end date</string>
     <string name="warning_no_start_end_date">Please choose both dates</string>
+    <string name="account_status_active">Active</string>
+    <string name="account_status_non_expire">Non-expiring</string>
+    <string name="account_status_expired">Expired</string>
+    <string name="toast_11_number_account">Please enter an 11-digit account number</string>
+    <string name="toast_no_amount">Please enter an amount</string>
+    <string name="toast_not_enough_money">Amount exceeds balance</string>
+    <string name="toast_cannot_determine_interest_rate">Unable to determine interest rate</string>
+    <string name="notify_cannot_determine_interest_rate">The information you provided does not match any interest rate</string>
+    <string name="notify_interest_rate">Your interest rate will be: "</string>
+    <string name="toast_field_empty">Please fill in all fields!</string>
+    <string name="toast_retype_new_password">New password does not match!</string>
+    <string name="label_electric_bill">Electric Bill</string>
+    <string name="label_water_bill">Water Bill</string>
+    <string name="toast_password_length">Password must be longer than 6 characters</string>
+    <string name="label_prepaid_phone">Prepaid Mobile Top-Up</string>
+    <string name="label_postpaid_phone">Postpaid Mobile Top-Up</string>
+    <string name="toast_cannnot_find">Not Found</string>
+    <string name="toast_undefined_phone">Invalid phone number format or unsupported carrier</string>
+    <string name="toast_unacceptable_amount">Accepted amounts are: 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000</string>
+    <string name="toast_no_bank_account_chosen">Please choose an account to send from</string>
+    <string name="toast_username_password">Invalid username or password</string>
+    <string name="toast_error">An error occurred!</string>
+    <string name="toast_register_successful">Registration successful</string>
+
 </resources>

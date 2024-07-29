@@ -52,9 +52,9 @@ public class IntentSignUp extends AppCompatActivity {
                 String signUpPassword = edtSignupPassword.getText().toString();
                 String signUpRePassword = edtSignupRepassword.getText().toString();
                 if(!signUpPassword.equals(signUpRePassword)){
-                    Toast.makeText(IntentSignUp.this, "2 mật khẩu không trùng nhau", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentSignUp.this, getResources().getString(R.string.toast_retype_new_password), Toast.LENGTH_SHORT).show();
                 } else if (signUpPassword.length()<6) {
-                    Toast.makeText(IntentSignUp.this, "Mật khẩu phải dài hơn 6 kí tự", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IntentSignUp.this, getResources().getString(R.string.toast_password_length), Toast.LENGTH_SHORT).show();
                 }
                 else{
                     signUpData.put("name", name);
