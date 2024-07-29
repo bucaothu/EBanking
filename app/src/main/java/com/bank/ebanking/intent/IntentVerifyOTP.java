@@ -1,9 +1,7 @@
 package com.bank.ebanking.intent;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
-import android.telephony.SmsManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bank.EBanking.R;
 import com.bank.ebanking.model.BankAccount;
 import com.bank.ebanking.services.Services.TransactionService;
-import com.bank.ebanking.services.Services.UserSessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -36,11 +33,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class IntentVerifyOTP extends AppCompatActivity {
-    PhoneAuthProvider.ForceResendingToken resendingToken;
     FirebaseAuth myAuth;
     EditText codeInput1, codeInput2, codeInput3, codeInput4, codeInput5, codeInput6;
     String verificationID;
@@ -50,9 +45,30 @@ public class IntentVerifyOTP extends AppCompatActivity {
     int amount;
     String description;
     String codeInput;
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
+            signinbyCredentials(credential);
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            Toast.makeText(IntentVerifyOTP.this, "Vertification failed", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken token) {
+            super.onCodeSent(s, token);
+            verificationID = s;
+            Toast.makeText(IntentVerifyOTP.this, "sent OPT success", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
+        myAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.auth_verify_otp_activity);
         if (getSupportActionBar() != null) getSupportActionBar().hide();
 
@@ -107,6 +123,9 @@ public class IntentVerifyOTP extends AppCompatActivity {
                 data.put("idTransactionType", 1);
                 data.put("otp", codeInput);
                 TransactionService.transfer(data, IntentVerifyOTP.this, new IntentMainScreen());
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationID, codeInput);
+
+                signinbyCredentials(credential);
             }
         });
 
@@ -116,17 +135,49 @@ public class IntentVerifyOTP extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = getIntent();
                 intent.setClass(IntentVerifyOTP.this, IntentVerifyOTP.class);
-                TransactionService.otp(UserSessionManager.getUsername(), IntentVerifyOTP.this, intent);
+//                TransactionService.otp(UserSessionManager.getUsername(), IntentVerifyOTP.this, intent);
+                sendOtp(bankAccount.getIdUser().getUserProfile().getPhone());
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(v -> {
+            Intent intent = getIntent();
+            intent.setClass(IntentVerifyOTP.this, IntentTransferDetails.class);
+            startActivity(intent);
+            finish();
+        });
+    }
+
+    private void sendOtp(String phoneNumber) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(myAuth)
+                        .setPhoneNumber("+84" + phoneNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // (optional) Activity for callback binding
+                        // If no activity is passed, reCAPTCHA verification can not be used.
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
+
+    private void signinbyCredentials(PhoneAuthCredential credential) {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onClick(View v) {
-                Intent intent = getIntent();
-                intent.setClass(IntentVerifyOTP.this, IntentTransferDetails.class);
-                startActivity(intent);
-                finish();
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("accountNumber", bankAccount.getAccountNumber());
+                    data.put("toAccountNumber", toBankAccount.getAccountNumber());
+                    data.put("amount", amount);
+                    data.put("date", LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+                    data.put("description", description);
+                    data.put("idTransactionType", 1);
+                    TransactionService.transfer(data, IntentVerifyOTP.this, new IntentMainScreen());
+                } else {
+                    Toast.makeText(IntentVerifyOTP.this, "Verify Failed!" + "\n" + verificationID + "\n" + codeInput, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -31,22 +31,16 @@ public class IntentTransferMain extends AppCompatActivity {
     }
 
     private void setEvent() {
-        InputFilter filter = new InputFilter() {
-            @Override
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                if (source.equals("") || source.toString().matches("[0-9]*")) {
-                    return null; // Accept the input
-                }
-                return ""; // Reject the input
+        InputFilter filter = (source, start, end, dest, dstart, dend) -> {
+            if (source.equals("") || source.toString().matches("[0-9]*")) {
+                return null; // Accept the input
             }
+            return ""; // Reject the input
         };
         edtAccountNumber.setFilters(new InputFilter[]{filter});
-        btnBackHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mainScreen= new Intent(IntentTransferMain.this, IntentMainScreen.class);
-                startActivity(mainScreen);
-            }
+        btnBackHome.setOnClickListener(view -> {
+            Intent mainScreen= new Intent(IntentTransferMain.this, IntentMainScreen.class);
+            startActivity(mainScreen);
         });
 
         btnContinueTransfer.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +50,10 @@ public class IntentTransferMain extends AppCompatActivity {
                 if(edtAccountNumber.getText().toString().length()!=11){
                     Toast.makeText(IntentTransferMain.this, getResources().getString(R.string.toast_11_number_account), Toast.LENGTH_SHORT).show();
                 }
-                BankAccountService.getBankAccount(edtAccountNumber.getText().toString(), UserSessionManager.getUsername(), IntentTransferMain.this, new IntentTransferDetails());
-                overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                else {
+                    BankAccountService.getBankAccount(edtAccountNumber.getText().toString(), UserSessionManager.getUsername(), IntentTransferMain.this, new IntentTransferDetails());
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                }
             }
         });
     }

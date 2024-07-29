@@ -1,13 +1,10 @@
 package com.bank.ebanking.intent;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
-import android.telephony.SmsManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,12 +17,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.EBanking.R;
-import com.bank.ebanking.model.BankAccount;
-import com.bank.ebanking.model.UserProfile;
 import com.bank.ebanking.services.Services.AuthenticationService;
-import com.bank.ebanking.services.Services.TransactionService;
-import com.bank.ebanking.services.Services.UserService;
-import com.bank.ebanking.services.Services.UserSessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -39,15 +31,11 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class IntentVerifyPhone extends AppCompatActivity {
-    PhoneAuthProvider.ForceResendingToken resendingToken;
     FirebaseAuth myAuth;
     EditText codeInput1, codeInput2, codeInput3, codeInput4, codeInput5, codeInput6;
     String verificationID;
@@ -58,19 +46,11 @@ public class IntentVerifyPhone extends AppCompatActivity {
     private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-//            signinbyCredentials(credential);
+            signinbyCredentials(credential);
         }
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                System.out.println(e);
-            } else if (e instanceof FirebaseTooManyRequestsException) {
-                System.out.println(e);
-            } else if (e instanceof FirebaseAuthMissingActivityForRecaptchaException) {
-                System.out.println(e);
-            }
-            System.out.println(e);
             Toast.makeText(IntentVerifyPhone.this, "Vertification failed", Toast.LENGTH_SHORT).show();
         }
 
@@ -147,14 +127,11 @@ public class IntentVerifyPhone extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = getIntent();
-                intent.setClass(IntentVerifyPhone.this, IntentSignUp.class);
-                startActivity(intent);
-                finish();
-            }
+        btnBack.setOnClickListener(v -> {
+            Intent intent = getIntent();
+            intent.setClass(IntentVerifyPhone.this, IntentSignUp.class);
+            startActivity(intent);
+            finish();
         });
     }
 
@@ -181,8 +158,6 @@ public class IntentVerifyPhone extends AppCompatActivity {
                     AuthenticationService.register(signUpInfos, IntentVerifyPhone.this);
                 } else {
                     System.out.println(task.getException().toString());
-                    if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                    }
                 }
             }
         });
