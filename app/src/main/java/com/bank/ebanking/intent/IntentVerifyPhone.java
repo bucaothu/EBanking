@@ -46,7 +46,7 @@ public class IntentVerifyPhone extends AppCompatActivity {
     private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-            signinbyCredentials(credential);
+//            signinbyCredentials(credential);
         }
 
         @Override

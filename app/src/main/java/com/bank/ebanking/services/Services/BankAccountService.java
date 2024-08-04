@@ -90,7 +90,7 @@ public class BankAccountService {
                         getBankAccounts(username, context, newIntent, true);
                     }
                     else{
-                        Toast.makeText(context, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, context.getResources().getString(R.string.notify_no_bank_account), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     System.out.println(e);

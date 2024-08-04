@@ -37,6 +37,8 @@ public class IntentAddBankAccount extends AppCompatActivity {
 
     private void setEvent() {
         tvNote.setVisibility(View.VISIBLE);
+        tvNote.setText(getResources().getString(R.string.label_notify_empty_bank_account));
+        tvTitle.setText(getResources().getString(R.string.title_add_bank_account));
         btnBack.setVisibility(View.GONE);
         InputFilter filter = new InputFilter() {
             @Override

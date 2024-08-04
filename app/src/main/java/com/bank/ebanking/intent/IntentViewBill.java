@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -92,6 +93,7 @@ public class IntentViewBill extends AppCompatActivity {
                 }
                 try {
                     MediaStore.Images.Media.insertImage(getContentResolver(), file.getAbsolutePath(), file.getName(), file.getName());
+                    Toast.makeText(IntentViewBill.this, getResources().getString(R.string.toast_username_password), Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }

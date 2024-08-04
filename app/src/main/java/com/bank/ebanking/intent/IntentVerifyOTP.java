@@ -45,22 +45,27 @@ public class IntentVerifyOTP extends AppCompatActivity {
     int amount;
     String description;
     String codeInput;
+    private String verificationId;
+    private static final String KEY_VERIFICATION_ID = "key_verification_id";
+
+
     private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-            signinbyCredentials(credential);
+//            signinbyCredentials(credential);
         }
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(IntentVerifyOTP.this, "Vertification failed", Toast.LENGTH_SHORT).show();
+            System.out.println(e);
+            Toast.makeText(IntentVerifyOTP.this, "Xác thực thất bại", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken token) {
             super.onCodeSent(s, token);
             verificationID = s;
-            Toast.makeText(IntentVerifyOTP.this, "sent OPT success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(IntentVerifyOTP.this, "Gửi otp thành công", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -78,6 +83,11 @@ public class IntentVerifyOTP extends AppCompatActivity {
             amount = getIntent().getIntExtra("amount", 0);
             description = getIntent().getStringExtra("description");
         }
+        if (verificationId == null && savedInstanceState != null) {
+            onRestoreInstanceState(savedInstanceState);
+        }
+        sendOtp(bankAccount.getIdUser().getUserProfile().getPhone());
+
         setControl();
         setEvent();
         setupOTPinputs();
@@ -273,5 +283,16 @@ public class IntentVerifyOTP extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(KEY_VERIFICATION_ID,verificationId);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        verificationId = savedInstanceState.getString(KEY_VERIFICATION_ID);
     }
 }

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bank.EBanking.R;
 import com.bank.ebanking.api.TransactionAPIService;
 import com.bank.ebanking.intent.IntentMainScreen;
 import com.bank.ebanking.model.BillDetail;
@@ -67,10 +68,10 @@ public class TransactionService {
                         getTransactions(UserSessionManager.getUsername(), context, intent);
                     }
                     else{
-                        Toast.makeText(context, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, context.getResources().getString(R.string.title_add_bank_account), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, , Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -126,7 +127,7 @@ public class TransactionService {
                     }
                 } catch (Exception e) {
                     System.out.println(e);
-                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Thông tin đăng nhập không chính xác!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

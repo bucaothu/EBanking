@@ -95,7 +95,8 @@ public class IntentTransferDetails extends AppCompatActivity {
                     intent.putExtra("toBankAccount", toBankAccount);
                     intent.putExtra("amount", Integer.parseInt(edtTransferAmount.getText().toString()));
                     intent.putExtra("detail", edtTransferDetail.getText().toString());
-                    TransactionService.otp(UserSessionManager.getUsername(), IntentTransferDetails.this, intent);
+                    startActivity(intent);
+//                    TransactionService.otp(UserSessionManager.getUsername(), IntentTransferDetails.this, intent);
                     overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
                 }
             }

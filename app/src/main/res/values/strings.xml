@@ -133,5 +133,7 @@
     <string name="toast_username_password">Sai tên người dùng hoặc mật khẩu</string>
     <string name="toast_error">Có lỗi xảy ra!</string>
     <string name="toast_register_successful">Đăng kí thành công</string>
-
+    <string name="toast_transaction_saved">Đã lưu vào thư viện ảnh</string>
+    <string name="title_add_bank_account">Hãy nhập số tài khoản bạn muốn</string>
+    <string name="notify_no_bank_account">Không tìm thấy tài khoản ngân hàng</string>
 </resources>

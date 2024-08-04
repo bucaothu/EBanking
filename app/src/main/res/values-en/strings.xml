@@ -123,5 +123,8 @@
     <string name="toast_username_password">Invalid username or password</string>
     <string name="toast_error">An error occurred!</string>
     <string name="toast_register_successful">Registration successful</string>
+    <string name="toast_transaction_saved">Transaction saved in library</string>
+    <string name="title_add_bank_account">Input the account number you want</string>
+    <string name="notify_no_bank_account">Cannot find the mentioned bank account</string>
 
 </resources>

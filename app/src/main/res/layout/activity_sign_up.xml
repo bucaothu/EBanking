@@ -5,35 +5,36 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_marginTop="30dp"
         android:id="@+id/icon_bank_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/icon_bank"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/icon_bank"></ImageView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <TextView
         android:id="@+id/app_name_sign_up"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/icon_bank_sign_up"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/title_sign_up"
         android:textColor="@color/black"
+        android:textSize="40dp"
         android:textStyle="bold"
-        android:text="@string/title_sign_up"></TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_bank_sign_up"></TextView>
+
     <LinearLayout
         android:id="@+id/layout_user_name_sign_up"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_name_sign_up">
@@ -45,24 +46,25 @@
 
         <EditText
             android:id="@+id/edtName"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="@string/label_personal_name"></EditText>
+            android:gravity="center"
+            android:hint="@string/label_personal_name"
+            android:inputType="text"></EditText>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layout_user_cccd_sign_up"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_user_name_sign_up"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_user_name_sign_up">
+
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -70,24 +72,25 @@
 
         <EditText
             android:id="@+id/edtCccd"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/label_personal_id_number"></EditText>
+            android:gravity="center"
+            android:hint="@string/label_personal_id_number"
+            android:inputType="number"></EditText>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layout_user_id_sign_up"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_user_cccd_sign_up"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_user_cccd_sign_up">
+
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -95,29 +98,29 @@
 
         <EditText
             android:id="@+id/edtPhone"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/label_personal_phone"></EditText>
+            android:gravity="center"
+            android:hint="@string/label_personal_phone"
+            android:inputType="number"></EditText>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layout_user_password"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_user_id_sign_up"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_user_id_sign_up">
+
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@drawable/email">
-        </ImageView>
+            android:src="@drawable/email"></ImageView>
 
         <EditText
             android:id="@+id/edtEmail"
@@ -128,25 +131,22 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:id="@+id/layout_phone_sign_up"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_user_password"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_user_password">
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/profile"></ImageView>
-
 
 
         <EditText
@@ -158,20 +158,17 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
         android:id="@+id/layout_password"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_phone_sign_up"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_phone_sign_up">
 
         <ImageView
             android:layout_width="45dp"
@@ -183,25 +180,24 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="15dp"
             android:hint="@string/label_password"
             android:inputType="textPassword"
+            android:paddingTop="15dp"
             android:textAlignment="center" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_repassword"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_password"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_password">
 
         <ImageView
             android:layout_width="45dp"
@@ -213,26 +209,24 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="15dp"
             android:hint="@string/label_confirm_new_password"
             android:inputType="textPassword"
+            android:paddingTop="15dp"
             android:textAlignment="center" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_profession_sign_up"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_repassword"
-        >
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/layout_repassword"></LinearLayout>
 
 
     <Button

@@ -25,7 +25,7 @@ public interface APIService {
             .build();
     Retrofit BUILDER = new Retrofit.Builder()
 //            .baseUrl("http://10.0.2.2:8080/") //nếu chạy máy ảo
-            .baseUrl("http://192.168.1.6:8000/") //địa chỉ ip của máy tính
+            .baseUrl("http://192.168.1.40:8000/") //địa chỉ ip của máy tính
             .client(okHttpClient)
             .addConverterFactory(
                     GsonConverterFactory.create(new GsonBuilder()
